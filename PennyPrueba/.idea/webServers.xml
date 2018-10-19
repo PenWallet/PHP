@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="9d1e40f7-6872-4907-863e-f26d11e3ea1a" name="vagrant" url="http://penny.devel:8080">
+        <fileTransfer host="127.0.0.1" port="2222" rootFolder="/var/www/penny.devel" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="2222" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

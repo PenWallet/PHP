@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario</title>
+</head>
+<body>
+
+<h1>Queremos tus datos</h1>
+<form action="formulario.php" method="post">
+    Nombre: <input type="text" name="nombre"><br>
+    E-mail: <input type="text" name="email"><br>
+    Género: <br>
+            <input type="radio" name="genero" value="hombre"> Hombre<br>
+            <input type="radio" name="genero" value="mujer"> Mujer<br>
+            <input type="radio" name="genero" value="apache"> Helicóptero Apache<br>
+            <input type="radio" name="genero" value="asdas"> :(<br>
+    <input type="submit">
+</form>
+
+<br/>
+<br/>
+
+<form action="palabrasResultado.php" method="post">
+    Introduce el texto que quieras: <br>
+    <input type="text" name="texto"> <br>
+    Contar cuántas veces sale esta palabra: <input type="text" name="contar"><br>
+    En qué posiciones aparece la palabra: <input type="text" name="posiciones"><br>
+    Qué posiciones de palabra quieres cambiar: <input type="number" name="intPos1"> por <input type="number" name="intPos2">
+    <input type="submit">
+</form>
+
+
+
+</body>
+</html>
