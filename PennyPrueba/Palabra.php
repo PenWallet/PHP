@@ -27,12 +27,19 @@ class Palabra
 
     public function contarPalabra($palabra)
     {
-        return substr_count($this->texto, $palabra);
+        $cont = 0;
+        $palabras = preg_split('/\s+/', $this->texto);
+        for ($x = 0; $x < count($palabras); $x++)
+        {
+            if($palabras[$x] == $palabra)
+                $cont++;
+        }
+
+        return $cont;
     }
 
     public function posicionPalabra($palabra)
     {
-        $cont = 0;
         $arrayPosiciones = array();
         $palabras = preg_split('/\s+/', $this->texto);
         for ($x = 0; $x < count($palabras); $x++)
@@ -69,4 +76,3 @@ class Palabra
         return implode(" ", $palabras);
     }
 }
-
