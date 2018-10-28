@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear un nuevo pan</title>
+</head>
+<body>
+<h1>Introduce los datos del nuevo pan:</h1>
+<form action="../php/nuevoPan.php" method="post">
+    Nombre: <input type="text" name="nombre"><br>
+    Crujenticidad:<br>
+        <input type="radio" name="crujenticidad" value="0" checked="true">Como pan de molde<br>
+        <input type="radio" name="crujenticidad" value="1">Meh<br>
+        <input type="radio" name="crujenticidad" value="2">Arena de playa<br>
+        <input type="radio" name="crujenticidad" value="3">*crunch crunch*<br>
+        <input type="radio" name="crujenticidad" value="4">Igual que si pisaras un caracol<br>
+        <input type="radio" name="crujenticidad" value="5">El Jesucristo de lo crujiente<br><br>
+    ¿Es integral?: <br>
+        <input type="radio" name="integral" value="1" checked="true">Sí<br>
+        <input type="radio" name="integral" value="0">No<br><br>
+    Precio: <input type="number" name="precio" step="0.01" min="0"><br>
+    <input type="submit" value="Crear nuevo pan">
+</form>
+</body>
+</html>

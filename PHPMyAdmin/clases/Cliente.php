@@ -1,4 +1,5 @@
 <?php
+require_once "../Database.php";
 
 /**
  * Created by PhpStorm.
@@ -8,7 +9,41 @@
  */
 class Cliente
 {
-    private $id;
+    public static function listaClientes()
+    {
+        $sentencia = null;
+        $array = array();
+        $nombreCompleto = null;
+        $database = Database::getInstance();
+        $conexion = $database->getConnection();
+
+        if($conexion->connect_error)
+        {
+            trigger_error("Error al conectar a MySQL".$conexion->connect_error, E_USER_ERROR);
+        }
+        else
+        {
+            if($sentencia = $conexion->prepare("SELECT ID, Nombre, Apellidos FROM Clientes"))
+            {
+                $sentencia->execute();
+            }
+        }
+
+        $sentencia->bind_result($id, $nombre, $apellidos);
+
+        while($sentencia->fetch())
+        {
+            $nombreCompleto = $nombre." ".$apellidos;
+            $array[$id] = $nombreCompleto;
+        }
+
+        $database->closeConnection();
+
+
+        return $array;
+    }
+
+    /*private $id;
     public $nombre;
     public $apellidos;
     public $fechaNac;
@@ -46,5 +81,5 @@ class Cliente
     public function setDireccion($newDireccion){ $this->direccion = $newDireccion; }
 
     public function getTelefono(){ return $this->telefono; }
-    public function setTelefono($newTelefono){ $this->telefono = $newTelefono; }
+    public function setTelefono($newTelefono){ $this->telefono = $newTelefono; }*/
 }
