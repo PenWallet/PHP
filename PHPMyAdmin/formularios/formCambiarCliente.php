@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>Elige qué cliente cambiar:</h1>
-    <form action="../php/cambiarCliente.php" method="post" name="clienteForm">
+    <form action="../php/cambiarCliente.php" method="post">
         <select name="cliente">
             <?php
             require_once "../clases/Cliente.php";

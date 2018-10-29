@@ -1,4 +1,5 @@
 <?php
+require_once "../Database.php";
 
 /**
  * Created by PhpStorm.
@@ -8,6 +9,39 @@
  */
 class Pan
 {
+    public static function listaPanes()
+    {
+        $sentencia = null;
+        $array = array();
+        $database = Database::getInstance();
+        $conexion = $database->getConnection();
+
+        if($conexion->connect_error)
+        {
+            trigger_error("Error al conectar a MySQL".$conexion->connect_error, E_USER_ERROR);
+        }
+        else
+        {
+            if($sentencia = $conexion->prepare("SELECT ID, Nombre FROM Panes"))
+            {
+                $sentencia->execute();
+            }
+        }
+
+        $sentencia->bind_result($id, $nombre);
+
+        while($sentencia->fetch())
+        {
+            $array[$id] = $nombre;
+        }
+
+        $database->closeConnection();
+
+
+        return $array;
+    }
+
+    /*
     private $id;
     public $nombre;
     public $crujenticidad;
@@ -36,7 +70,7 @@ class Pan
     public function setEsIntegral($newIntegral){ $this->esIntegral = $newIntegral; }
 
     public function getPrecio(){ return $this->precio; }
-    public function setPrecio($newPrecio){ $this->precio = $newPrecio; }
+    public function setPrecio($newPrecio){ $this->precio = $newPrecio; }*/
 
 
 }
