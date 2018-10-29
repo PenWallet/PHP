@@ -31,6 +31,16 @@ if(isset($_POST["option"]))
             echo "cambiar un pan";
             header("Location: http://pennypan.devel:8080/formularios/formCambiarPan.php");
             break;
+
+        case "crearPedido":
+            echo "crear un pedido";
+            header("Location: http://pennypan.devel:8080/formularios/formCrearPedido.php");
+            break;
+
+        case "cambiarPedido":
+            echo "cambiar un pedido";
+            header("Location: http://pennypan.devel:8080/formularios/formCambiarPedido.php");
+            break;
     }
 }
 else

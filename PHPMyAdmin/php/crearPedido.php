@@ -18,19 +18,18 @@ if($conexion->connect_error)
 else
 {
     //Preparamos la sentencia
-    $sentencia = $conexion->prepare("INSERT INTO Panes (Nombre, Crujenticidad, Integral, Precio) VALUES (?,?,?,?)");
+    $sentencia = $conexion->prepare("INSERT INTO ClientesPanes (IDCliente, IDPan, Cantidad) VALUES (?,?,?)");
 
     //Vinculamos los parámetros a las variables que vamos a modificar
-    $sentencia->bind_param('siid', $nombre, $crujenticidad, $integral, $precio);
+    $sentencia->bind_param('iii', $idCliente, $idPan, $cantidad);
 
     //Ahora damos los valores
-    $nombre = $_POST["nombre"];
-    $crujenticidad = $_POST["crujenticidad"];
-    $integral = $_POST["integral"];
-    $precio = $_POST["precio"];
+    $idCliente = $_POST["cliente"];
+    $idPan = $_POST["pan"];
+    $cantidad = $_POST["cantidad"];
     //Y ejecutamos
     if($sentencia->execute())
-        echo "¡El pan '".$nombre."' se ha introducido correctamente!";
+        echo "¡Pedido creado correctamente!";
     else
         echo "Algo fue mal :( ".$sentencia->error;
 
@@ -39,3 +38,4 @@ else
 
 echo "<br><br>";
 echo "<a href='../index.html'>Ir a la página inicial</a>";
+
