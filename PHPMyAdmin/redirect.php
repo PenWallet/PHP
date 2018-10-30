@@ -37,9 +37,13 @@ if(isset($_POST["option"]))
             header("Location: http://pennypan.devel:8080/formularios/formCrearPedido.php");
             break;
 
-        case "cambiarPedido":
+        case "verPedidos":
             echo "cambiar un pedido";
-            header("Location: http://pennypan.devel:8080/formularios/formCambiarPedido.php");
+            header("Location: http://pennypan.devel:8080/php/verPedidos.php");
+            break;
+
+        default:
+            echo "ERROR: PÁGINA NO ENCONTRADA";
             break;
     }
 }

@@ -32,7 +32,7 @@
             ?>
         </select> <br>
         <h2>Introduce la cantidad:</h2>
-        <input type="number" name="cantidad" step="1" min="0"/>
+        <input type="number" name="cantidad" step="1" min="0" value="0"/>
         <input type="submit" value="A cambiarlo"/>
     </form>
 
