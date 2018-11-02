@@ -67,15 +67,3 @@ else
 <a href='../index.html'>Ir a la página inicial</a>
 </body>
 </html>
-
-<?php
-/**
- * Created by PhpStorm.
- * User: Oscar
- * Date: 30/10/2018
- * Time: 17:15
- */
-
-
-
-?>
