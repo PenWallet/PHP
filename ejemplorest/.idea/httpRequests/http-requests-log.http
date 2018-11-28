@@ -1,0 +1,154 @@
+GET http://biblioteca.devel:8080/libro?minpag=300
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"titulo": "A Oscar le funciona", "codigo": 0, "numpag": 456 }
+
+<> 2018-11-28T080938.200.html
+
+###
+
+GET http://biblioteca.devel:8080/libro?minpag=300
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"titulo": "A Oscar le funciona", "codigo": 0, "numpag": 456 }
+
+<> 2018-11-28T080858.200.html
+
+###
+
+GET http://biblioteca.devel:8080/libro?minpag=300
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"titulo": "A Oscar le funciona", "codigo": 0, "numpag": 456 }
+
+<> 2018-11-28T080238.200.html
+
+###
+
+GET http://biblioteca.devel:8080/libro?minpag=300
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"titulo": "A Oscar le funciona", "codigo": 0, "numpag": 456 }
+
+<> 2018-11-28T080224.200.html
+
+###
+
+GET http://biblioteca.devel:8080/libro?minpag=300
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"titulo": "A Oscar le funciona", "codigo": 0, "numpag": 456 }
+
+<> 2018-11-28T075142.200.html
+
+###
+
+GET http://biblioteca.devel:8080/libro?minpag=300
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"titulo": "A Oscar le funciona", "codigo": 0, "numpag": 456 }
+
+<> 2018-11-28T075010.200.html
+
+###
+
+GET http://biblioteca.devel:8080/libro?minpag=300
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"titulo": "A Oscar le funciona", "codigo": 0, "numpag": 456 }
+
+<> 2018-11-28T063148.200.html
+
+###
+
+GET http://biblioteca.devel:8080/libro?minpag=300
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"titulo": "A Oscar le funciona", "codigo": 0, "numpag": 456 }
+
+<> 2018-11-28T063110.200.html
+
+###
+
+GET http://biblioteca.devel:8080/libro?minpag=300
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"titulo": "A Oscar le funciona", "codigo": 0, "numpag": 456 }
+
+<> 2018-11-28T062952.200.html
+
+###
+
+GET http://biblioteca.devel:8080/libro?minpag=300
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"titulo": "A Oscar le funciona", "codigo": 0, "numpag": 456 }
+
+<> 2018-11-28T062925.200.html
+
+###
+
+GET http://biblioteca.devel:8080/libro?minpag=300
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"titulo": "A Oscar le funciona", "codigo": 0, "numpag": 456 }
+
+<> 2018-11-28T062847.200.html
+
+###
+
+GET http://biblioteca.devel:8080/libro?q=algo&puf=56&minpag=300&numpag=300
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"titulo": "A Oscar le funciona", "codigo": 0, "numpag": 456 }
+
+<> 2018-11-28T062701.200.html
+
+###
+
+GET http://biblioteca.devel:8080/libro?q=algo&puf=56&minpag=300
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"titulo": "A Oscar le funciona", "codigo": 0, "numpag": 456 }
+
+<> 2018-11-28T062556.200.html
+
+###
+
+GET http://biblioteca.devel:8080/libro?q=algo&puf=56
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"titulo": "A Oscar le funciona", "codigo": 0, "numpag": 456 }
+
+<> 2018-11-28T061713.200.html
+
+###
+
