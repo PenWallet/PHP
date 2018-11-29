@@ -1,11 +1,5 @@
 package pruebaRetrofitJava;
 
-import java.io.IOException;
-import com.google.gson.Gson;
-import okio.*;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -29,13 +23,15 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Principal {
 	
-	private final static String SERVER_URL = "http://pennypan.devel:8080";
+	private final static String SERVER_URL = "http://biblioteca.devel:8080";
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
 		Retrofit retrofit;
 		LibroCallback libroCallback = new LibroCallback();
+		LibroListCallback libroListCallback = new LibroListCallback();
+		LibroVoidCallback libroVoidCallback = new LibroVoidCallback();
 		
 		retrofit = new Retrofit.Builder()
 							   .baseUrl(SERVER_URL)
@@ -44,12 +40,14 @@ public class Principal {
 		
 		LibroInterface libroInter = retrofit.create(LibroInterface.class);
 		
-		libroInter.getLibro(6).enqueue(libroCallback);
+		libroInter.getLibro(1).enqueue(libroCallback);
 
+		libroInter.getListLibro().enqueue(libroListCallback);
+
+		libroInter.deleteLibro(6).enqueue(libroVoidCallback);
+
+		libroInter.postLibro(new Libro(0,"Libro novo", "900")).enqueue(libroVoidCallback);
+
+		libroInter.putLibro(new Libro(1, "El cambiazo de Don Quixot", "3")).enqueue(libroVoidCallback);
 	}
-
-
-	
-
-
 }

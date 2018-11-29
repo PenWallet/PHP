@@ -7,7 +7,12 @@ public class Libro {
 	private String titulo;
 	private String numpag;
 
-	
+	public Libro(int codigo, String titulo, String numpag) {
+		this.codigo = codigo;
+		this.titulo = titulo;
+		this.numpag = numpag;
+	}
+
 	public int getCodigo() {
 		return codigo;
 	}

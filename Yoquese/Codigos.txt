@@ -1,0 +1,6 @@
+GET 200 / 400-404
+POST 201 / 400-415
+PUT 204 / 400-404-415
+DELETE 204 / 400-404
+
+Sí, te he copiao jolsensei sorry sumimasen jeje

@@ -2,8 +2,8 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="70a7be25-baec-40cd-9853-524c11414dac" name="Vagrant" url="http://pennypan.devel">
-        <fileTransfer host="pennypan.devel" port="2222" rootFolder="/var/www/pennypan.devel" accessType="SFTP">
+      <webServer id="70a7be25-baec-40cd-9853-524c11414dac" name="Vagrant" url="http://biblioteca.devel">
+        <fileTransfer host="biblioteca.devel" port="2222" rootFolder="/var/www/biblioteca.devel" accessType="SFTP">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" />
           </advancedOptions>

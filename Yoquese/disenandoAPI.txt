@@ -1,0 +1,172 @@
+######################################################################################
+##########################    OBTENER TODOS DATOS     ################################
+######################################################################################
+
+****PETICION********************************************************
+	GET /alumno
+	accept application/json
+
+****RESPUESTA*******************************************************
+	200 OK
+		content-type: application/json
+		Body: [
+				{"id":"1",
+				"nombre":"Pedro",
+				"apellidos":"Sánchez",
+				"direccion":"calle falsa",
+				"edad":"16"}, 
+
+				{"id":"",
+				"nombre":"",
+				"apellidos":"",
+				"direccion":"",
+				"edad":""}, 
+
+				{"id":"",
+				"nombre":"",
+				"apellidos":"",
+				"direccion":"",
+				"edad":""}
+			]
+
+	415 Error de formato
+
+
+######################################################################################
+##########################        OBTENER DATOS       ################################
+######################################################################################
+
+****PETICION********************************************************
+	GET /alumno/{id}
+	accept application/json
+	description: devuelve la informacion del alumno con la Id recibida
+
+****RESPUESTA*******************************************************
+
+	200 OK
+		content-type: application/json
+		Body: 
+				{"id":"1",
+				"nombre":"Pedro",
+				"apellidos":"Sánchez",
+				"direccion":"calle falsa",
+				"edad":"16"}
+
+	400 
+	406 El servidor no soporta enviar la respuesta en el formato que pide
+			
+######################################################################################
+##########################        GUARDAR        #####################################
+######################################################################################
+
+****PETICION********************************************************
+	POST /alumno/{id}
+		accept application/json
+		description: guarda un nuevo alumno con los datos enviados
+		content-type: application/json
+		Body:	{"nombre":"Pedro",
+				"apellidos":"Sánchez",
+				"direccion":"calle falsa",
+				"edad":"16"}
+
+****RESPUESTA*******************************************************
+
+	200 OK
+		content-type: application/json
+		Body:	{"id":"1",
+				"nombre":"Pedro",
+				"apellidos":"Sánchez",
+				"direccion":"calle falsa",
+				"edad":"16"}
+
+	415 Error de formato de entrada no permitido 
+
+######################################################################################
+#########################     BÚSQUEDA FILTRADA    ###################################
+######################################################################################
+
+****PETICION********************************************************
+	GET /alumno?edad_min={}&edad_max={}
+		accept application/json
+		description: devuelve un listado con los alumnos cuya edad esté comprendida
+				entre las cifras especificadas
+
+****RESPUESTA*******************************************************
+
+	200 OK
+		content-type: application/json
+		Body:	[
+					{"id":"1",
+					"nombre":"Pedro",
+					"apellidos":"Sánchez",
+					"direccion":"calle falsa",
+					"edad":"16"}, 
+
+					{"id":"",
+					"nombre":"",
+					"apellidos":"",
+					"direccion":"",
+					"edad":""}, 
+
+					{"id":"",
+					"nombre":"",
+					"apellidos":"",
+					"direccion":"",
+					"edad":""}
+				]
+
+	415 Error de formato de entrada no permitido 
+
+######################################################################################
+##################################  MODIFICAR  #######################################
+######################################################################################
+
+****PETICION********************************************************
+	PUT /alumno?id={}
+		accept application/json
+		description: modifica los datos del alumno cuyo id sea igual 
+				al id enviado
+		content-type: application/json
+		Body:	{"nombre":"Puto",
+				"apellidos":"Sánchez",
+				"direccion":"calle falsa",
+				"edad":"16"}
+
+****RESPUESTA*******************************************************
+
+	200 OK
+		content-type: application/json
+		Body:	{"id":"1",
+				"nombre":"Pedro",
+				"apellidos":"Sánchez",
+				"direccion":"calle falsa",
+				"edad":"16"}
+				
+
+	400 Bad Request
+	404 ID Not Found
+	415 Error de formato de entrada no permitido 
+
+######################################################################################
+###########################    ELIMINAR    ###########################################
+######################################################################################
+
+****PETICION********************************************************
+	DELETE /alumno?id={}
+		accept application/json
+		description: elimina el alumno cuyo id sea igual al id enviado
+		content-type: application/json
+
+****RESPUESTA*******************************************************
+
+	200 OK
+		content-type: application/json
+		Body:	{"id":"1",
+				"nombre":"Pedro",
+				"apellidos":"Sánchez",
+				"direccion":"calle falsa",
+				"edad":"16"}
+				
+
+	400 Bad Request
+	404 ID Not Found
