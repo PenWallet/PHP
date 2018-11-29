@@ -24,7 +24,6 @@ function apiAutoload($classname)
             $res = true;
         }
     }
-
     //Instead of having Views, like in a Model-View-Controller project,
     //we will have a Response class. So we don't need the following.
     //Although we could have different classes to generate the output,
@@ -37,7 +36,7 @@ function apiAutoload($classname)
     return $res;
 }
 
-echo "1";
+
 //Let's retrieve all the information from the request
 $verb = $_SERVER['REQUEST_METHOD'];
 //IMPORTANT: WITH CGI OR FASTCGI, PATH_INFO WILL NOT BE AVAILABLE!!!
@@ -62,20 +61,16 @@ if (isset($_SERVER['HTTP_ACCEPT'])) {
     $accept = $_SERVER['HTTP_ACCEPT'];
 }
 
-echo 2;
+
 $req = new Request($verb, $url_elements, $query_string, $body, $content_type, $accept);
-echo 3;
 
-$controller_name = "LibroController";
+
 // route the request to the right place
-//$controller_name = ucfirst($url_elements[1]) . 'Controller';
-
+$controller_name = ucfirst($url_elements[1]) . 'Controller';
 if (class_exists($controller_name)) {
     $controller = new $controller_name();
-    echo 6;
     $action_name = 'manage' . ucfirst(strtolower($verb)) . 'Verb';
     $controller->$action_name($req);
-    echo 5;
     //$result = $controller->$action_name($req);
     //print_r($result);
 } //If class does not exist, we will send the request to NotFoundController

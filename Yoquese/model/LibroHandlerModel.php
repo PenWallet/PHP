@@ -1,7 +1,7 @@
 <?php
 
 require_once "ConsLibrosModel.php";
-require_once "DatabaseModel.php";
+
 
 class LibroHandlerModel
 {
@@ -123,7 +123,7 @@ class LibroHandlerModel
 
             if ($id != null)
             {
-                $prep_query->bind_param('s', $id);
+                $prep_query->bind_param('i', $id);
             }
 
             $filasAfectadas = $prep_query->execute();

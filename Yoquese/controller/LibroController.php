@@ -7,7 +7,6 @@ class LibroController extends Controller
 {
     public function manageGetVerb(Request $request)
     {
-        echo 12;
         $listaLibros = null;
         $id = null;
         $response = null;
@@ -18,7 +17,6 @@ class LibroController extends Controller
             $id = $request->getUrlElements()[2];
         }
 
-        echo 13;
         $queryStrings = $request->getQueryString();
 
         $listaLibros = LibroHandlerModel::getLibro($id, $queryStrings);
@@ -104,7 +102,5 @@ class LibroController extends Controller
         $response = new Response($code, null, null, $request->getAccept());
         $response->generate();
     }
-
-
 
 }

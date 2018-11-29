@@ -21,8 +21,8 @@ class Response
 
     public function generate()
     {
-        switch ($this->format)
-        {
+
+        switch ($this->format) {
             case 'json':
 
                 if (!empty($this->body)) {
