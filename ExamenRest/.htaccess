@@ -1,0 +1,23 @@
+#AcceptPathInfo On
+
+#Prevent directory browsing
+Options -Indexes
+
+
+#IMPORTANTE: Hay que habilitar el módulo de apache mod_rewrite, que en Ubuntu se haría así:
+# sudo a2enmod rewrite
+# Y además, para permitir que las directivas de este fichero .htaccess sobreescriban las directivas
+# generales de configuración, hay que modificar /etc/apache2/apache2.conf, cambiando en la sección
+# <Directory /var/www/> la directiva "AllowOverride None" por "AllowOverride All"
+# Tras ello, reiniciar el servidor apache
+RewriteEngine On
+RewriteBase /
+
+# Let's send all requests that don't refer to an existing file or directory to index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L]
+#RewriteRule (.*) index.php [QSA,L,E=PATH_INFO:/$1]
+
+# Prevent access to config directory
+RewriteRule ^config/ - [NC,F,L]
