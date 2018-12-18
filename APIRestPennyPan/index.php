@@ -60,13 +60,17 @@ $accept = null;
 if (isset($_SERVER['HTTP_ACCEPT'])) {
     $accept = $_SERVER['HTTP_ACCEPT'];
 }
-$auth = null;
-if (isset($_SERVER['AUTHORIZATION'])) {
-    $auth = $_SERVER['AUTHORIZATION'];
+$authUser = null;
+if (isset($_SERVER['PHP_AUTH_USER'])) {
+    $authUser = $_SERVER['PHP_AUTH_USER'];
+}
+$authPass = null;
+if(isset($_SERVER['PHP_AUTH_PW'])){
+    $authPass = $_SERVER['PHP_AUTH_PW'];
 }
 
 
-$req = new Request($verb, $url_elements, $query_string, $body, $content_type, $accept, $auth);
+$req = new Request($verb, $url_elements, $query_string, $body, $content_type, $accept, $authUser, $authPass);
 
 
 // route the request to the right place
@@ -74,6 +78,7 @@ $controller_name = ucfirst($url_elements[1]) . 'Controller';
 if (class_exists($controller_name)) {
     $controller = new $controller_name();
     $action_name = 'manage' . ucfirst(strtolower($verb)) . 'Verb';
+    $controller->$action_name($req);
     //$result = $controller->$action_name($req);
     //print_r($result);
 } //If class does not exist, we will send the request to NotFoundController

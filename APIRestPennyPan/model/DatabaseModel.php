@@ -32,8 +32,6 @@ class DatabaseModel
     // We could improve it by passing the config file path as a parameter
     private function __construct()
     {
-
-
         // Load configuration as an array. Use the actual location of your configuration file
         // The configuration file should be like this:
         //[database]
@@ -43,13 +41,18 @@ class DatabaseModel
         //password = mypassword
         $config = parse_ini_file('config/config.ini');
 
+        $connectionOptions = array(
+            "Database" => $config['dbname'], // update me
+            "Uid" => $config['username'], // update me
+            "PWD" => $config['password'] // update me
+        );
+
         // Try and connect to the database
-        $this->_connection = new mysqli($config['host'], $config['username'],
-            $config['password'], $config['dbname']);
+        $this->_connection = sqlsrv_connect($config['host'], $connectionOptions);
 
         // Error handling
-        if ($this->_connection->connect_error) {
-            trigger_error("Failed to connect to MySQL: " . $this->_connection->connect_error,
+        if ($this->_connection === false) {
+            trigger_error("Failed to connect to SQL: " . sqlsrv_errors(),
                 E_USER_ERROR);
         }
     }
@@ -75,7 +78,7 @@ class DatabaseModel
     
     public function closeConnection()
     {
-        $this->_connection->close();
+        sqlsrv_close($this->_connection);
         self::$_instance=null;
     }
 

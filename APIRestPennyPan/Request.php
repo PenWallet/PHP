@@ -11,15 +11,17 @@ class Request
     private $format;
     //in $accept we store the format of the content that the server will send
     private $accept;
-    private $auth;
+    private $authUser;
+    private $authPass;
 
-    public function __construct($verb, $url_elements, $query_string, $body, $content_type, $accept, $auth)
+    public function __construct($verb, $url_elements, $query_string, $body, $content_type, $accept, $authUser, $authPass)
     {
         $this->verb = $verb;
         $this->url_elements = $url_elements;
         $this->query_string = $query_string;
         $this->parseBody($body, $content_type);
-        $this->auth = $auth;
+        $this->authUser = $authUser;
+        $this->authPass = $authPass;
 
         switch ($accept) {
             case 'application/json':
@@ -173,17 +175,19 @@ class Request
     /**
      * @return mixed
      */
-    public function getAuth()
+    public function getAuthUser()
     {
-        return $this->auth;
+        return $this->authUser;
     }
 
     /**
-     * @param mixed $auth
+     * @return mixed
      */
-    public function setAuth($auth)
+    public function getAuthPass()
     {
-        $this->auth = $auth;
+        return $this->authPass;
     }
+
+
 
 }

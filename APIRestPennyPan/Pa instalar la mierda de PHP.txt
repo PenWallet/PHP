@@ -1,0 +1,9 @@
+sudo apt-get install php-pear php-dev
+
+https://www.reddit.com/r/Ubuntu/comments/8qhdx7/pecl72sp_command_not_found/
+
+sudo pecl7.2-sp install sqlsrv
+
+php -m
+
+https://docs.microsoft.com/en-us/sql/connect/php/loading-the-php-sql-driver?view=sql-server-2017
