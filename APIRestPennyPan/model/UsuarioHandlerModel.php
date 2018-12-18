@@ -15,11 +15,16 @@ class UsuarioHandlerModel
         //If the $id is valid or the client asks for the collection ($id is null)
         if ($username != null) {
             $query = "SELECT dbo.ValidarUsernameUsuario(?) AS ret";
+            $prep_query = $db_connection->prepare($query);
+            $prep_query->bind_param('s', $username);
+            $prep_query->execute();
+            $prep_query->bind_result($ret);
 
-
-            if ($id != null) {
-                $query = $query . " WHERE " . \ConstantesDB\ConsLibrosModel::COD . " = ?";
+            if($ret == 1)
+            {
+                $query = "SELECT * FROM Usuarios WHERE Username = ?";
             }
+
 
             $prep_query = $db_connection->prepare($query);
 
