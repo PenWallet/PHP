@@ -27,4 +27,36 @@ class ClienteHandlerModel
         return $cliente;
     }
 
+    public static function getListadoUsuarios($panadero)
+    {
+        $listado = null;
+
+        if($panadero->getPanadero() == 1)
+        {
+            $db = DatabaseModel::getInstance();
+            $db_connection = $db->getConnection();
+
+            $query = "SELECT Username, Nombre, Panadero FROM Clientes";
+            $query = sqlsrv_query($db_connection, $query);
+
+            if(sqlsrv_execute($query))
+            {
+                $listado = array();
+
+                while(sqlsrv_fetch($query))
+                {
+                    if (sqlsrv_get_field($query, 2) == 0) //Si no es un panadero
+                    {
+                        $listado[] = new ClienteModel(sqlsrv_get_field($query, 0), "", sqlsrv_get_field($query, 1), sqlsrv_get_field($query, 2));
+                    }
+                }
+            }
+
+            sqlsrv_free_stmt($query);
+            $db->closeConnection();
+        }
+
+        return $listado;
+    }
+
 }

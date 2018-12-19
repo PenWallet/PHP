@@ -12,7 +12,7 @@ class ClienteController extends Controller
         $authUser = $request->getAuthUser();
         $authPass = $request->getAuthPass();
         $username = null;
-        $usuario = null;
+        $listadoUsuarios = null;
 
         if(isset($request->getUrlElements()[2]))
         {
@@ -20,26 +20,38 @@ class ClienteController extends Controller
 
             if($authUser != null && $authPass != null && $authUser == $username) {
 
-                $usuario = ClienteHandlerModel::getUsuario($authUser, $authPass);
+                $listadoUsuarios = ClienteHandlerModel::getUsuario($authUser, $authPass);
 
-                if($usuario == null)
+                if($listadoUsuarios == null)
                     $code = '401'; //Unauthorized
                 else
                     $code = '200'; //OK
 
             }
-            else{
+            else {
                 $code = '400'; //Bad Request
             }
         }
         else
         {
-            $code = '501'; //Not implemented
+            if ($authUser != null && $authPass != null) {
+
+                $panadero = ClienteHandlerModel::getUsuario($authUser, $authPass);
+
+                $listadoUsuarios = ClienteHandlerModel::getListadoUsuarios($panadero);
+
+                if ($listadoUsuarios != null)
+                {
+                    //Get listado de usuarios
+                }
+                else
+                    $code = '401'; //Unauthorized
+            }
         }
 
 
 
-        $response = new Response($code, null, $usuario, $request->getAccept());
+        $response = new Response($code, null, $listadoUsuarios, $request->getAccept());
         $response->generate();
 
     }
