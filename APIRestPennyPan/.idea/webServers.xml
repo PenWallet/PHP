@@ -2,10 +2,10 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="60dc6b39-3e4d-439b-8eaf-71fdf2dad992" name="Vagrant" url="http://biblioteca.devel:8080">
-        <fileTransfer host="127.0.0.1" port="2222" rootFolder="/var/www/biblioteca.devel" accessType="SFTP">
+      <webServer id="60dc6b39-3e4d-439b-8eaf-71fdf2dad992" name="Vagrant" url="http://pennypan.devel:8080">
+        <fileTransfer host="127.0.0.1" port="2222" rootFolder="/var/www/pennypan.devel" accessType="SFTP">
           <advancedOptions>
-            <advancedOptions dataProtectionLevel="Private" shareSSLContext="true" />
+            <advancedOptions dataProtectionLevel="Private" />
           </advancedOptions>
           <option name="port" value="2222" />
         </fileTransfer>

@@ -11,6 +11,9 @@ class ClienteController extends Controller
         $code = null;
         $authUser = $request->getAuthUser();
         $authPass = $request->getAuthPass();
+        $usuario = null;
+
+        if(isset($request))
 
         if($authUser != null && $authPass != null) {
 

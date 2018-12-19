@@ -7,3 +7,7 @@ sudo pecl7.2-sp install sqlsrv
 php -m
 
 https://docs.microsoft.com/en-us/sql/connect/php/loading-the-php-sql-driver?view=sql-server-2017
+
+Lo bueno
+https://www.microsoft.com/en-us/sql-server/developer-get-started/php/ubuntu/step/2.html
+https://stackoverflow.com/questions/3108937/how-to-install-and-run-phpize
