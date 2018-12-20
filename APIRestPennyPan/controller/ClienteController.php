@@ -28,9 +28,10 @@ class ClienteController extends Controller
                     $code = '200'; //OK
 
             }
-            else {
+            else if($authPass == null || $authUser == null)
                 $code = '400'; //Bad Request
-            }
+            else
+                $code = '401';
         }
         else
         {
@@ -41,9 +42,7 @@ class ClienteController extends Controller
                 $listadoUsuarios = ClienteHandlerModel::getListadoUsuarios($panadero);
 
                 if ($listadoUsuarios != null)
-                {
-                    //Get listado de usuarios
-                }
+                    $code = '200'; //OK
                 else
                     $code = '401'; //Unauthorized
             }
@@ -52,6 +51,25 @@ class ClienteController extends Controller
 
 
         $response = new Response($code, null, $listadoUsuarios, $request->getAccept());
+        $response->generate();
+
+    }
+
+    public function managePostVerb(Request $request)
+    {
+        $response = null;
+        $code = null;
+
+        $usuario = (object)$request->getBodyParameters();
+
+        $usuarioCreado = ClienteHandlerModel::insertarUsuario($usuario);
+
+        if($usuarioCreado == -2 || $usuarioCreado == -1)
+            $code = '500'; //Internal server error
+        else
+            $code = '201'; //Created
+
+        $response = new Response($code, null, null, $request->getAccept());
         $response->generate();
 
     }
