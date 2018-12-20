@@ -2,14 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05aaf214-99e6-4ec8-88ab-9a1c7660a951" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/webServers.xml" afterPath="$PROJECT_DIR$/.idea/webServers.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../ExamenRetrofit/src/pruebaRetrofitJava/ListPedidosCallback.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../ExamenRetrofit/src/pruebaRetrofitJava/Pedido.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../ExamenRetrofit/src/pruebaRetrofitJava/PedidoInterface.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../ExamenRetrofit/src/pruebaRetrofitJava/Principal.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../ExamenRetrofit/src/pruebaRetrofitJava/Producto.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/ClienteController.php" afterPath="$PROJECT_DIR$/controller/ClienteController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/ClienteHandlerModel.php" afterPath="$PROJECT_DIR$/model/ClienteHandlerModel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ExamenRest/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../ExamenRest/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ejemplorest/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/../ejemplorest/.idea/dataSources.local.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ExamenRetrofit/.idea/libraries/converter_gson_2_1_0.xml" afterPath="$PROJECT_DIR$/../ExamenRetrofit/.idea/libraries/converter_gson_2_1_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ExamenRetrofit/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../ExamenRetrofit/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Retrofit/pruebaRetrofitJava/.idea/libraries/converter_gson_2_1_0.xml" afterPath="$PROJECT_DIR$/../Retrofit/pruebaRetrofitJava/.idea/libraries/converter_gson_2_1_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Retrofit/pruebaRetrofitJava/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../Retrofit/pruebaRetrofitJava/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -129,8 +131,8 @@
       <file leaf-file-name="ClienteModel.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/model/ClienteModel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="41" column="33" lean-forward="false" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="33" />
+            <state relative-caret-position="-200">
+              <caret line="35" column="31" lean-forward="true" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -141,16 +143,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="106">
               <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PRUEBA.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PRUEBA.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -270,7 +262,7 @@
     <property name="DatabaseDriversLRU" value="sqlserver" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ExamenRetrofit" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.SQL" />
   </component>
@@ -613,16 +605,15 @@
       <workItem from="1545204310234" duration="8906000" />
       <workItem from="1545225229551" duration="360000" />
       <workItem from="1545291288668" duration="7052000" />
-      <workItem from="1545305298155" duration="3083000" />
+      <workItem from="1545305298155" duration="4035000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33815000" />
+    <option name="totallyTimeSpent" value="34767000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="59" y="25" width="1307" height="743" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19127774" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -922,10 +913,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/para instalar drivers">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/model/ClienteModel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="41" column="33" lean-forward="false" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="33" />
+        <state relative-caret-position="-200">
+          <caret line="35" column="31" lean-forward="true" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
           <folding />
         </state>
       </provider>
