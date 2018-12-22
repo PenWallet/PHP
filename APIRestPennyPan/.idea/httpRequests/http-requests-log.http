@@ -1,3 +1,39 @@
+POST http://pennypan.devel:8080/cliente
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{         "username": "usuarionuevo",         "contrasena": "1234",         "nombre": "adasdas",         "panadero": 0     }
+
+###
+
+POST http://pennypan.devel:8080/cliente
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{         "username": "usuarionuevo",         "contrasena": "1234",         "nombre": "adasdas",         "panadero": 0     }
+
+###
+
+POST http://pennypan.devel/cliente
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{         "username": "usuarionuevo",         "contrasena": "1234",         "nombre": "adasdas",         "panadero": 0     }
+
+###
+
+POST http://pennypan.devel/cliente
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{         "username": "usuarionuevo",         "contrasena": "1234",         "nombre": "adasdas",         "panadero": 0     }
+
+###
+
 GET http://biblioteca.devel:8080/cliente
 Accept: */*
 Cache-Control: no-cache

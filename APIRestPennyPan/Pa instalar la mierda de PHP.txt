@@ -13,3 +13,10 @@ https://www.microsoft.com/en-us/sql-server/developer-get-started/php/ubuntu/step
 https://stackoverflow.com/questions/3108937/how-to-install-and-run-phpize
 
 Imagen virtual que no sea x86, y enlace en la moodle para cambiar el etc hosts del movil
+
+Para cambiar el archivo hosts del emulador:
+https://medium.com/code-procedure-and-rants/use-modified-hosts-file-on-android-emulator-4f29f5d12ac1
+https://medium.com/@crysfel/updating-the-hosts-file-on-android-emulator-d61a533a76cf
+
+Para ejecutar los comandos de emulator y adb:
+C:\Users\(usuario)\AppData\Local\Android\Sdk\emulator y \platform-tools

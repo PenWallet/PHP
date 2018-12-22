@@ -39,12 +39,17 @@ class ClienteController extends Controller
 
                 $panadero = ClienteHandlerModel::getUsuario($authUser, $authPass);
 
-                $listadoUsuarios = ClienteHandlerModel::getListadoUsuarios($panadero);
+                if($panadero != null)
+                {
+                    $listadoUsuarios = ClienteHandlerModel::getListadoUsuarios($panadero);
 
-                if ($listadoUsuarios != null)
-                    $code = '200'; //OK
+                    if ($listadoUsuarios != null)
+                        $code = '200'; //OK
+                    else
+                        $code = '401'; //Unauthorized
+                }
                 else
-                    $code = '401'; //Unauthorized
+                    $code = '400'; //Bad Request
             }
         }
 
@@ -59,17 +64,18 @@ class ClienteController extends Controller
     {
         $response = null;
         $code = null;
+        $usuarioCreado = null;
 
         $usuario = (object)$request->getBodyParameters();
 
         $usuarioCreado = ClienteHandlerModel::insertarUsuario($usuario);
 
-        if($usuarioCreado == -2 || $usuarioCreado == -1)
-            $code = '500'; //Internal server error
+        if($usuarioCreado == null)
+            $code = '409'; //Conflict
         else
             $code = '201'; //Created
 
-        $response = new Response($code, null, null, $request->getAccept());
+        $response = new Response($code, null, $usuarioCreado, $request->getAccept());
         $response->generate();
 
     }

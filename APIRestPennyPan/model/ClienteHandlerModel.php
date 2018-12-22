@@ -56,14 +56,10 @@ class ClienteHandlerModel
         return $listado;
     }
 
-    //Devuelve:
-    // -2 si no se ha podido ejecutar nada
-    // -1 si se han actualizado más de 1 filas
-    // 0 si ha ido todo bien
+    //Devuelve el usuario registrado
     public static function insertarUsuario($usuario)
     {
-        $listado = null;
-        $creado = -2;
+        $cliente = null;
 
         $db = DatabaseModel::getInstance();
         $db_connection = $db->getConnection();
@@ -74,18 +70,15 @@ class ClienteHandlerModel
         $stmt = sqlsrv_prepare($db_connection, $query, $parametros);
         $resultado = sqlsrv_execute($stmt);
 
-        if($resultado == -2)
-        {
-            if(sqlsrv_rows_affected($stmt) == 1)
-                $creado = 0;
-            else
-                $creado = -1;
-        }
-
         sqlsrv_free_stmt($stmt);
         $db->closeConnection();
 
-        return $creado;
+        if($resultado === true)
+        {
+            $cliente = self::getUsuario($usuario->username, $usuario->contrasena);
+        }
+
+        return $cliente;
     }
 
 }
