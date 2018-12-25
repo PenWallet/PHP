@@ -1,0 +1,74 @@
+{
+  "id": "6",
+  "fechaCompra": {
+    "date": "2017-10-21 00:00:00.000000",
+    "timezone_type": 3,
+    "timezone": "Europe\/Berlin"
+  },
+  "importeTotal": "2.9500",
+  "bocatas": [
+    {
+      "pan": {
+        "id": false,
+        "nombre": false,
+        "crujenticidad": false,
+        "integral": false,
+        "precio": false
+      },
+      "ingredientes": [
+        {
+          "id": 4,
+          "nombre": "Chorizo             ",
+          "precio": ".4000",
+          "cantidad": 2
+        },
+        {
+          "id": 13,
+          "nombre": "Mortadela           ",
+          "precio": ".3000",
+          "cantidad": 1
+        }
+      ]
+    },
+    {
+      "pan": {
+        "id": false,
+        "nombre": false,
+        "crujenticidad": false,
+        "integral": false,
+        "precio": false
+      },
+      "ingredientes": [
+        {
+          "id": 4,
+          "nombre": "Chorizo             ",
+          "precio": ".4000",
+          "cantidad": 2
+        },
+        {
+          "id": 13,
+          "nombre": "Mortadela           ",
+          "precio": ".3000",
+          "cantidad": 1
+        },
+        {
+          "id": 5,
+          "nombre": "Pavo                ",
+          "precio": ".3000",
+          "cantidad": 2
+        }
+      ]
+    }
+  ],
+  "panes": [
+    {
+      "id": 2,
+      "nombre": "Baguette            ",
+      "crujenticidad": 4,
+      "integral": 0,
+      "precio": ".5000",
+      "cantidad": 1
+    }
+  ],
+  "complementos": []
+}

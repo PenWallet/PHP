@@ -1,3 +1,171 @@
+GET http://pennypan.devel:8080/cliente/oscar1/pedido/6
+Accept: */*
+Cache-Control: no-cache
+Authorization: Basic b3NjYXIxOjEyMzQ=
+
+###
+
+GET http://pennypan.devel:8080/cliente/oscar1
+Accept: */*
+Cache-Control: no-cache
+Authorization: Basic b3NjYXIxOjEyMzQ=
+
+<> 2018-12-24T103631.200.json
+
+###
+
+GET http://pennypan.devel:8080/cliente/oscar1
+Accept: */*
+Cache-Control: no-cache
+Authorization: Basic b3NjYXIxOjEyMzQ=
+
+<> 2018-12-24T103620.200.html
+
+###
+
+GET http://pennypan.devel:8080/cliente/oscar1
+Accept: */*
+Cache-Control: no-cache
+Authorization: Basic b3NjYXIxOjEyMzQ=
+
+<> 2018-12-24T103340.200.html
+
+###
+
+GET http://pennypan.devel:8080/cliente/oscar1/pedido/6
+Accept: */*
+Cache-Control: no-cache
+Authorization: Basic b3NjYXIxOjEyMzQ=
+
+###
+
+GET http://pennypan.devel:8080/cliente/oscar1/pedido/6
+Accept: */*
+Cache-Control: no-cache
+Authorization: Basic b3NjYXIxOjEyMzQ=
+
+<> 2018-12-24T100948.200.json
+
+###
+
+GET http://pennypan.devel:8080/cliente/oscar1/pedido/6
+Accept: */*
+Cache-Control: no-cache
+Authorization: Basic b3NjYXIxOjEyMzQ=
+
+<> 2018-12-24T100701.200.html
+
+###
+
+GET http://pennypan.devel:8080/cliente/oscar1/pedido/1
+Accept: */*
+Cache-Control: no-cache
+Authorization: Basic b3NjYXIxOjEyMzQ=
+
+###
+
+GET http://pennypan.devel:8080/cliente/oscar1/pedido/6
+Accept: */*
+Cache-Control: no-cache
+Authorization: Basic b3NjYXIxOjEyMzQ=
+
+###
+
+GET http://pennypan.devel:8080/cliente/oscar1/pedido/1
+Accept: */*
+Cache-Control: no-cache
+Authorization: Basic b3NjYXIxOjEyMzQ=
+
+###
+
+GET http://pennypan.devel:8080/cliente/oscar1/pedido/1
+Accept: */*
+Cache-Control: no-cache
+Authorization: Basic b3NjYXIxOjEyMzQ=
+
+###
+
+GET http://pennypan.devel:8080/cliente/oscar1/pedido/1
+Accept: */*
+Cache-Control: no-cache
+Authorization: Basic b3NjYXIxOjEyMzQ=
+
+###
+
+GET http://pennypan.devel:8080/cliente/oscar1/pedido/1
+Accept: */*
+Cache-Control: no-cache
+Authorization: Basic b3NjYXIxOjEyMzQ=
+
+###
+
+GET http://pennypan.devel:8080/cliente/oscar1
+Accept: */*
+Cache-Control: no-cache
+Authorization: Basic b3NjYXIxOjEyMzQ=
+
+<> 2018-12-24T094803.200.json
+
+###
+
+GET http://pennypan.devel:8080/cliente/oscar1/
+Accept: */*
+Cache-Control: no-cache
+Authorization: Basic b3NjYXIxOjEyMzQ=
+
+###
+
+GET http://pennypan.devel:8080/cliente/oscar1/
+Accept: */*
+Cache-Control: no-cache
+Authorization: Basic b3NjYXIxOjEyMzQ=
+
+###
+
+GET http://pennypan.devel:8080/cliente/oscar1/
+Accept: */*
+Cache-Control: no-cache
+Authorization: Basic b3NjYXIxOjEyMzQ=
+
+###
+
+GET http://pennypan.devel:8080/cliente/oscar1/pedido/1
+Accept: */*
+Cache-Control: no-cache
+Authorization: Basic b3NjYXIxOjEyMzQ=
+
+###
+
+GET http://pennypan.devel:8080/cliente/oscar1/pedido/1
+Accept: */*
+Cache-Control: no-cache
+Authorization: Basic b3NjYXIxOjEyMzQ=
+
+###
+
+GET http://pennypan.devel:8080/cliente/oscar1/pedido/1
+Accept: */*
+Cache-Control: no-cache
+Authorization: Basic b3NjYXIxOjEyMzQ=
+
+###
+
+GET http://pennypan.devel:8080/cliente/oscar1/pedido/1
+Accept: */*
+Cache-Control: no-cache
+Authorization: Basic b3NjYXIxOjEyMzQ=
+
+###
+
+GET http://pennypan.devel:8080/cliente
+Accept: */*
+Cache-Control: no-cache
+Authorization: Basic b3NjYXIxOjEyMzQ=
+
+<> 2018-12-22T083029.200.json
+
+###
+
 POST http://pennypan.devel:8080/cliente
 Accept: */*
 Cache-Control: no-cache
@@ -211,38 +379,6 @@ Accept: */*
 Cache-Control: no-cache
 
 <> 2018-12-18T052240.404.html
-
-###
-
-GET http://pennypan.devel:8080/cliente
-Accept: */*
-Cache-Control: no-cache
-
-<> 2018-12-18T052239.404.html
-
-###
-
-GET http://pennypan.devel:8080/cliente
-Accept: */*
-Cache-Control: no-cache
-
-<> 2018-12-18T052133.404.html
-
-###
-
-GET http://pennypan.devel:8080/cliente
-Accept: */*
-Cache-Control: no-cache
-
-<> 2018-12-18T052114.404.html
-
-###
-
-GET http://pennypan.devel:8080/cliente
-Accept: */*
-Cache-Control: no-cache
-
-<> 2018-12-18T052040.404.html
 
 ###
 
