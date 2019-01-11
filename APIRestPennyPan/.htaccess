@@ -21,3 +21,5 @@ RewriteRule ^(.*)$ index.php/$1 [L]
 
 # Prevent access to config directory
 RewriteRule ^config/ - [NC,F,L]
+
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]

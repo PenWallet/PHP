@@ -42,9 +42,9 @@ class DatabaseModel
         $config = parse_ini_file('config/config.ini');
 
         $connectionOptions = array(
-            "Database" => $config['dbname'], // update me
-            "Uid" => $config['username'], // update me
-            "PWD" => $config['password'] // update me
+            "Database" => $config['dbname'],
+            "Uid" => $config['username'],
+            "PWD" => $config['password']
         );
 
         // Try and connect to the database
