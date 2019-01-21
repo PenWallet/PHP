@@ -228,4 +228,95 @@ class PedidoHandlerModel
         return $arrayPedidos;
     }
 
+    public static function postPedido(PedidoModel $pedido, $username)
+    {
+        $db = DatabaseModel::getInstance();
+        $db_connection = $db->getConnection();
+        $pedidoResponse = null;
+        $panes = $pedido->getPanes();
+        $complementos = $pedido->getComplementos();
+        $bocatas = $pedido->getBocatas();
+
+        $queryPedido = "EXECUTE dbo.InsertarPedido ?, ?, ?, ?";
+        $queryPanes = "INSERT INTO PedidosPanes (IDPedido, IDPan, Cantidad) VALUES (?, ?, ?)";
+        $queryComplementos = "INSERT INTO PedidosComplementos (IDPedido, IDComplemento, Cantidad) VALUES (?, ?, ?)";
+        $queryBocatas = "EXECUTE dbo.InsertarBocata ?, ?, ?";
+        $queryIngredientes = "INSERT INTO BocatasIngredientes (IDBocata, IDIngrediente, Cantidad) VALUES (?, ?, ?)";
+
+        //Preparación para insertar el pedido primero
+        $idPedido = 0;
+        $params = array(
+            array($username, SQLSRV_PARAM_IN),
+            array($pedido->getFechaCompra(), SQLSRV_PARAM_IN),
+            array($pedido->getImporteTotal(), SQLSRV_PARAM_IN),
+            array($idPedido, SQLSRV_PARAM_OUT)
+        );
+        $stmtPedido = sqlsrv_query($db_connection, $queryPedido, $params);
+
+        if($stmtPedido != false)
+        {
+            //El pedido ya está insertado y tenemos su ID, pasamos a insertar todo lo demás
+            $idPan = 0; $panQty = 0;
+            $stmtPanes = sqlsrv_prepare($db_connection, $queryPanes, array($idPedido, $idPan, $panQty));
+            if($stmtPanes != false)
+            {
+                foreach($panes as $pan)
+                {
+                    $idPan = $pan->getId();
+                    $panQty = $pan->getCantidad();
+                    sqlsrv_execute($stmtPanes);
+                }
+            }
+
+            $idComp = 0; $compQty = 0;
+            $stmtComp = sqlsrv_prepare($db_connection, $queryComplementos, array($idPedido, $idComp, $compQty));
+            if($stmtComp != false)
+            {
+                foreach($complementos as $comp)
+                {
+                    $idComp = $comp->getId();
+                    $compQty = $comp->getCantidad();
+                    sqlsrv_execute($stmtComp);
+                }
+            }
+
+            $idPanBocata = 0; $idBocata = 0;
+            $params = array(
+                array($idPedido, SQLSRV_PARAM_IN),
+                array($idPanBocata, SQLSRV_PARAM_IN),
+                array($idBocata, SQLSRV_PARAM_OUT)
+            );
+            $stmtBocata = sqlsrv_prepare($db_connection, $queryBocatas, $params);
+
+            $idIngr = 0; $ingrQty = 0;
+            $stmtIngr = sqlsrv_prepare($db_connection, $queryIngredientes, array($idBocata, $idIngr, $ingrQty));
+            if($stmtBocata != null)
+            {
+                foreach($bocatas as $bocata)
+                {
+                    $idPanBocata = $bocata->getPan()->getId();
+                    sqlsrv_execute($stmtBocata);
+
+                    foreach($bocata->getIngredientes() as $ingr)
+                    {
+                        $idIngr = $ingr->getId();
+                        $ingrQty = $ingr->getCantidad();
+                        sqlsrv_execute($stmtIngr);
+                    }
+                }
+            }
+
+            sqlsrv_free_stmt($stmtPedido);
+            $db->closeConnection();
+
+            return self::getPedido($username, $idPedido);
+
+        }
+
+        sqlsrv_free_stmt($stmtPedido);
+        $db->closeConnection();
+
+        return null;
+    }
+
 }

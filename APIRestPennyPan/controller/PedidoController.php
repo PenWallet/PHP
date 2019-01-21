@@ -54,4 +54,45 @@ class PedidoController extends Controller
         $response->generate();
 
     }
+
+    public function managePostVerb(Request $request)
+    {
+        $response = null;
+        $code = null;
+        $authUser = $request->getAuthUser();
+        $authPass = $request->getAuthPass();
+        $username = isset($request->getUrlElements()[2]) ? $request->getUrlElements()[2] : null;
+        $listaPedidos = null;
+        $pedido = (object)$request->getBodyParameters();
+        $pedidoResponse = null;
+
+        if($pedido instanceof PedidoModel)
+        {
+            if(isset($request->getUrlElements()[3]) && strtolower($request->getUrlElements()[3]) == "pedido")
+            {
+                if(($authUser != null && $authPass != null) && $authUser == $username)
+                {
+                    $cliente = ClienteHandlerModel::getUsuario($authUser, $authPass);
+                    if($cliente != null)
+                    {
+                        $pedidoResponse = PedidoHandlerModel::postPedido($pedido, $username);
+                    }
+                    else
+                        $code = '401'; //Unauthorized
+                }
+                else
+                    $code = '401'; //Unauthorized
+            }
+            else
+                $code = '404'; //Not Found
+        }
+        else
+            $code = '400'; //Bad Request
+
+
+
+        $response = new Response($code, null, $pedidoResponse, $request->getAccept());
+        $response->generate();
+
+    }
 }
