@@ -1,3 +1,111 @@
+POST http://pennypan.devel:8080/cliente/oscar1/pedido
+Authorization: Basic b3NjYXIxOjEyMzQ=
+Content-Type: application/json
+
+{     "id": 0,     "fechaCompra": "2019/01/21",     "importeTotal": "2.95",     "bocatas": [         {             "pan": {                 "id": 2,                 "nombre": "Baguette",                 "crujenticidad": 4,                 "integral": 0,                 "precio": ".5000"             },             "ingredientes": [                 {                     "id": 4,                     "nombre": "Chorizo",                     "precio": ".4000",                     "cantidad": 2                 },                 {                     "id": 13,                     "nombre": "Mortadela",                     "precio": ".3000",                     "cantidad": 1                 }             ]         },         {             "pan": {                 "id": 3,                 "nombre": "Bollo",                 "crujenticidad": 5,                 "integral": 0,                 "precio": ".2500"             },             "ingredientes": [                 {                     "id": 4,                     "nombre": "Chorizo",                     "precio": ".4000",                     "cantidad": 2                 },                 {                     "id": 13,                     "nombre": "Mortadela",                     "precio": ".3000",                     "cantidad": 1                 },                 {                     "id": 5,                     "nombre": "Pavo",                     "precio": ".3000",                     "cantidad": 2                 }             ]         }     ],     "panes": [         {             "id": 2,             "nombre": "Baguette",             "crujenticidad": 4,             "integral": 0,             "precio": ".5000",             "cantidad": 1         }     ],     "complementos": [] }
+
+###
+
+POST http://pennypan.devel:8080/cliente/oscar1/pedido
+Authorization: Basic b3NjYXIxOjEyMzQ=
+Content-Type: application/json
+
+{     "id": 0,     "fechaCompra": "2019/01/21",     "importeTotal": "2.95",     "bocatas": [         {             "pan": {                 "id": 2,                 "nombre": "Baguette",                 "crujenticidad": 4,                 "integral": 0,                 "precio": ".5000"             },             "ingredientes": [                 {                     "id": 4,                     "nombre": "Chorizo",                     "precio": ".4000",                     "cantidad": 2                 },                 {                     "id": 13,                     "nombre": "Mortadela",                     "precio": ".3000",                     "cantidad": 1                 }             ]         },         {             "pan": {                 "id": 3,                 "nombre": "Bollo",                 "crujenticidad": 5,                 "integral": 0,                 "precio": ".2500"             },             "ingredientes": [                 {                     "id": 4,                     "nombre": "Chorizo",                     "precio": ".4000",                     "cantidad": 2                 },                 {                     "id": 13,                     "nombre": "Mortadela",                     "precio": ".3000",                     "cantidad": 1                 },                 {                     "id": 5,                     "nombre": "Pavo",                     "precio": ".3000",                     "cantidad": 2                 }             ]         }     ],     "panes": [         {             "id": 2,             "nombre": "Baguette",             "crujenticidad": 4,             "integral": 0,             "precio": ".5000",             "cantidad": 1         }     ],     "complementos": [] }
+
+###
+
+POST http://pennypan.devel:8080/cliente/oscar1/pedido
+Authorization: Basic b3NjYXIxOjEyMzQ=
+Content-Type: application/json
+
+{     "id": 0,     "fechaCompra": "2019/01/21",     "importeTotal": "2.95",     "bocatas": [         {             "pan": {                 "id": 2,                 "nombre": "Baguette",                 "crujenticidad": 4,                 "integral": 0,                 "precio": ".5000"             },             "ingredientes": [                 {                     "id": 4,                     "nombre": "Chorizo",                     "precio": ".4000",                     "cantidad": 2                 },                 {                     "id": 13,                     "nombre": "Mortadela",                     "precio": ".3000",                     "cantidad": 1                 }             ]         },         {             "pan": {                 "id": 3,                 "nombre": "Bollo",                 "crujenticidad": 5,                 "integral": 0,                 "precio": ".2500"             },             "ingredientes": [                 {                     "id": 4,                     "nombre": "Chorizo",                     "precio": ".4000",                     "cantidad": 2                 },                 {                     "id": 13,                     "nombre": "Mortadela",                     "precio": ".3000",                     "cantidad": 1                 },                 {                     "id": 5,                     "nombre": "Pavo",                     "precio": ".3000",                     "cantidad": 2                 }             ]         }     ],     "panes": [         {             "id": 2,             "nombre": "Baguette",             "crujenticidad": 4,             "integral": 0,             "precio": ".5000",             "cantidad": 1         }     ],     "complementos": [] }
+
+###
+
+POST http://pennypan.devel:8080/cliente/oscar1/pedido
+Authorization: Basic b3NjYXIxOjEyMzQ=
+Content-Type: application/json
+
+{     "id": 0,     "fechaCompra": "2019/01/21",     "importeTotal": "2.95",     "bocatas": [         {             "pan": {                 "id": 2,                 "nombre": "Baguette",                 "crujenticidad": 4,                 "integral": 0,                 "precio": ".5000"             },             "ingredientes": [                 {                     "id": 4,                     "nombre": "Chorizo",                     "precio": ".4000",                     "cantidad": 2                 },                 {                     "id": 13,                     "nombre": "Mortadela",                     "precio": ".3000",                     "cantidad": 1                 }             ]         },         {             "pan": {                 "id": 3,                 "nombre": "Bollo",                 "crujenticidad": 5,                 "integral": 0,                 "precio": ".2500"             },             "ingredientes": [                 {                     "id": 4,                     "nombre": "Chorizo",                     "precio": ".4000",                     "cantidad": 2                 },                 {                     "id": 13,                     "nombre": "Mortadela",                     "precio": ".3000",                     "cantidad": 1                 },                 {                     "id": 5,                     "nombre": "Pavo",                     "precio": ".3000",                     "cantidad": 2                 }             ]         }     ],     "panes": [         {             "id": 2,             "nombre": "Baguette",             "crujenticidad": 4,             "integral": 0,             "precio": ".5000",             "cantidad": 1         }     ],     "complementos": [] }
+
+###
+
+POST http://pennypan.devel:8080/cliente/oscar1/pedido
+Authorization: Basic b3NjYXIxOjEyMzQ=
+Content-Type: application/json
+
+{     "id": 0,     "fechaCompra": "2019/01/21",     "importeTotal": "2.95",     "bocatas": [         {             "pan": {                 "id": 2,                 "nombre": "Baguette",                 "crujenticidad": 4,                 "integral": 0,                 "precio": ".5000"             },             "ingredientes": [                 {                     "id": 4,                     "nombre": "Chorizo",                     "precio": ".4000",                     "cantidad": 2                 },                 {                     "id": 13,                     "nombre": "Mortadela",                     "precio": ".3000",                     "cantidad": 1                 }             ]         },         {             "pan": {                 "id": 3,                 "nombre": "Bollo",                 "crujenticidad": 5,                 "integral": 0,                 "precio": ".2500"             },             "ingredientes": [                 {                     "id": 4,                     "nombre": "Chorizo",                     "precio": ".4000",                     "cantidad": 2                 },                 {                     "id": 13,                     "nombre": "Mortadela",                     "precio": ".3000",                     "cantidad": 1                 },                 {                     "id": 5,                     "nombre": "Pavo",                     "precio": ".3000",                     "cantidad": 2                 }             ]         }     ],     "panes": [         {             "id": 2,             "nombre": "Baguette",             "crujenticidad": 4,             "integral": 0,             "precio": ".5000",             "cantidad": 1         }     ],     "complementos": [] }
+
+<> 2019-01-21T093534.200.html
+
+###
+
+POST http://pennypan.devel:8080/cliente/oscar1/pedido
+Authorization: Basic b3NjYXIxOjEyMzQ=
+Content-Type: application/json
+
+{     "id": 0,     "fechaCompra": "2019/01/21",     "importeTotal": "2.95",     "bocatas": [         {             "pan": {                 "id": 2,                 "nombre": "Baguette",                 "crujenticidad": 4,                 "integral": 0,                 "precio": ".5000"             },             "ingredientes": [                 {                     "id": 4,                     "nombre": "Chorizo",                     "precio": ".4000",                     "cantidad": 2                 },                 {                     "id": 13,                     "nombre": "Mortadela",                     "precio": ".3000",                     "cantidad": 1                 }             ]         },         {             "pan": {                 "id": 3,                 "nombre": "Bollo",                 "crujenticidad": 5,                 "integral": 0,                 "precio": ".2500"             },             "ingredientes": [                 {                     "id": 4,                     "nombre": "Chorizo",                     "precio": ".4000",                     "cantidad": 2                 },                 {                     "id": 13,                     "nombre": "Mortadela",                     "precio": ".3000",                     "cantidad": 1                 },                 {                     "id": 5,                     "nombre": "Pavo",                     "precio": ".3000",                     "cantidad": 2                 }             ]         }     ],     "panes": [         {             "id": 2,             "nombre": "Baguette",             "crujenticidad": 4,             "integral": 0,             "precio": ".5000",             "cantidad": 1         }     ],     "complementos": [] }
+
+<> 2019-01-21T093429.200.html
+
+###
+
+POST http://pennypan.devel:8080/cliente/oscar1/pedido
+Authorization: Basic b3NjYXIxOjEyMzQ=
+Content-Type: application/json
+
+{     "id": 0,     "fechaCompra": "2019/01/21",     "importeTotal": "2.95",     "bocatas": [         {             "pan": {                 "id": 2,                 "nombre": "Baguette",                 "crujenticidad": 4,                 "integral": 0,                 "precio": ".5000"             },             "ingredientes": [                 {                     "id": 4,                     "nombre": "Chorizo",                     "precio": ".4000",                     "cantidad": 2                 },                 {                     "id": 13,                     "nombre": "Mortadela",                     "precio": ".3000",                     "cantidad": 1                 }             ]         },         {             "pan": {                 "id": 3,                 "nombre": "Bollo",                 "crujenticidad": 5,                 "integral": 0,                 "precio": ".2500"             },             "ingredientes": [                 {                     "id": 4,                     "nombre": "Chorizo",                     "precio": ".4000",                     "cantidad": 2                 },                 {                     "id": 13,                     "nombre": "Mortadela",                     "precio": ".3000",                     "cantidad": 1                 },                 {                     "id": 5,                     "nombre": "Pavo",                     "precio": ".3000",                     "cantidad": 2                 }             ]         }     ],     "panes": [         {             "id": 2,             "nombre": "Baguette",             "crujenticidad": 4,             "integral": 0,             "precio": ".5000",             "cantidad": 1         }     ],     "complementos": [] }
+
+<> 2019-01-21T093406.200.html
+
+###
+
+POST http://pennypan.devel:8080/cliente/oscar1/pedido
+Authorization: Basic b3NjYXIxOjEyMzQ=
+Content-Type: application/json
+
+{     "id": 0,     "fechaCompra": "2019/01/21",     "importeTotal": "2.95",     "bocatas": [         {             "pan": {                 "id": 2,                 "nombre": "Baguette",                 "crujenticidad": 4,                 "integral": 0,                 "precio": ".5000"             },             "ingredientes": [                 {                     "id": 4,                     "nombre": "Chorizo",                     "precio": ".4000",                     "cantidad": 2                 },                 {                     "id": 13,                     "nombre": "Mortadela",                     "precio": ".3000",                     "cantidad": 1                 }             ]         },         {             "pan": {                 "id": 3,                 "nombre": "Bollo",                 "crujenticidad": 5,                 "integral": 0,                 "precio": ".2500"             },             "ingredientes": [                 {                     "id": 4,                     "nombre": "Chorizo",                     "precio": ".4000",                     "cantidad": 2                 },                 {                     "id": 13,                     "nombre": "Mortadela",                     "precio": ".3000",                     "cantidad": 1                 },                 {                     "id": 5,                     "nombre": "Pavo",                     "precio": ".3000",                     "cantidad": 2                 }             ]         }     ],     "panes": [         {             "id": 2,             "nombre": "Baguette",             "crujenticidad": 4,             "integral": 0,             "precio": ".5000",             "cantidad": 1         }     ],     "complementos": [] }
+
+<> 2019-01-21T093353.200.html
+
+###
+
+POST http://pennypan.devel:8080/cliente/oscar1/pedido
+Authorization: Basic b3NjYXIxOjEyMzQ=
+Content-Type: application/json
+
+{     "id": 0,     "fechaCompra": "2019/01/21",     "importeTotal": "2.95",     "bocatas": [         {             "pan": {                 "id": 2,                 "nombre": "Baguette",                 "crujenticidad": 4,                 "integral": 0,                 "precio": ".5000"             },             "ingredientes": [                 {                     "id": 4,                     "nombre": "Chorizo",                     "precio": ".4000",                     "cantidad": 2                 },                 {                     "id": 13,                     "nombre": "Mortadela",                     "precio": ".3000",                     "cantidad": 1                 }             ]         },         {             "pan": {                 "id": 3,                 "nombre": "Bollo",                 "crujenticidad": 5,                 "integral": 0,                 "precio": ".2500"             },             "ingredientes": [                 {                     "id": 4,                     "nombre": "Chorizo",                     "precio": ".4000",                     "cantidad": 2                 },                 {                     "id": 13,                     "nombre": "Mortadela",                     "precio": ".3000",                     "cantidad": 1                 },                 {                     "id": 5,                     "nombre": "Pavo",                     "precio": ".3000",                     "cantidad": 2                 }             ]         }     ],     "panes": [         {             "id": 2,             "nombre": "Baguette",             "crujenticidad": 4,             "integral": 0,             "precio": ".5000",             "cantidad": 1         }     ],     "complementos": [] }
+
+<> 2019-01-21T093330.200.html
+
+###
+
+POST http://pennypan.devel:8080/cliente/oscar1/pedido
+Authorization: Basic b3NjYXIxOjEyMzQ=
+Content-Type: application/json
+
+{     "id": 0,     "fechaCompra": "2019/01/21",     "importeTotal": "2.95",     "bocatas": [         {             "pan": {                 "id": 2,                 "nombre": "Baguette",                 "crujenticidad": 4,                 "integral": 0,                 "precio": ".5000"             },             "ingredientes": [                 {                     "id": 4,                     "nombre": "Chorizo",                     "precio": ".4000",                     "cantidad": 2                 },                 {                     "id": 13,                     "nombre": "Mortadela",                     "precio": ".3000",                     "cantidad": 1                 }             ]         },         {             "pan": {                 "id": 3,                 "nombre": "Bollo",                 "crujenticidad": 5,                 "integral": 0,                 "precio": ".2500"             },             "ingredientes": [                 {                     "id": 4,                     "nombre": "Chorizo",                     "precio": ".4000",                     "cantidad": 2                 },                 {                     "id": 13,                     "nombre": "Mortadela",                     "precio": ".3000",                     "cantidad": 1                 },                 {                     "id": 5,                     "nombre": "Pavo",                     "precio": ".3000",                     "cantidad": 2                 }             ]         }     ],     "panes": [         {             "id": 2,             "nombre": "Baguette",             "crujenticidad": 4,             "integral": 0,             "precio": ".5000",             "cantidad": 1         }     ],     "complementos": [] }
+
+###
+
+POST http://pennypan.devel:8080/cliente/oscar1/pedido
+Authorization: Basic b3NjYXIxOjEyMzQ=
+Content-Type: application/json
+
+{     "id": 0,     "fechaCompra": "2019/01/21",     "importeTotal": "2.95",     "bocatas": [         {             "pan": {                 "id": 2,                 "nombre": "Baguette",                 "crujenticidad": 4,                 "integral": 0,                 "precio": ".5000"             },             "ingredientes": [                 {                     "id": 4,                     "nombre": "Chorizo",                     "precio": ".4000",                     "cantidad": 2                 },                 {                     "id": 13,                     "nombre": "Mortadela",                     "precio": ".3000",                     "cantidad": 1                 }             ]         },         {             "pan": {                 "id": 3,                 "nombre": "Bollo",                 "crujenticidad": 5,                 "integral": 0,                 "precio": ".2500"             },             "ingredientes": [                 {                     "id": 4,                     "nombre": "Chorizo",                     "precio": ".4000",                     "cantidad": 2                 },                 {                     "id": 13,                     "nombre": "Mortadela",                     "precio": ".3000",                     "cantidad": 1                 },                 {                     "id": 5,                     "nombre": "Pavo",                     "precio": ".3000",                     "cantidad": 2                 }             ]         }     ],     "panes": [         {             "id": 2,             "nombre": "Baguette",             "crujenticidad": 4,             "integral": 0,             "precio": ".5000",             "cantidad": 1         }     ],     "complementos": [] }
+
+###
+
+POST http://localhost:8080/resources
+Authorization: Basic b3NjYXIxOjEyMzQ=
+Content-Type: application/json
+
+{     "id": 0,     "fechaCompra": "2019/01/21",     "importeTotal": "2.95",     "bocatas": [         {             "pan": {                 "id": 2,                 "nombre": "Baguette",                 "crujenticidad": 4,                 "integral": 0,                 "precio": ".5000"             },             "ingredientes": [                 {                     "id": 4,                     "nombre": "Chorizo",                     "precio": ".4000",                     "cantidad": 2                 },                 {                     "id": 13,                     "nombre": "Mortadela",                     "precio": ".3000",                     "cantidad": 1                 }             ]         },         {             "pan": {                 "id": 3,                 "nombre": "Bollo",                 "crujenticidad": 5,                 "integral": 0,                 "precio": ".2500"             },             "ingredientes": [                 {                     "id": 4,                     "nombre": "Chorizo",                     "precio": ".4000",                     "cantidad": 2                 },                 {                     "id": 13,                     "nombre": "Mortadela",                     "precio": ".3000",                     "cantidad": 1                 },                 {                     "id": 5,                     "nombre": "Pavo",                     "precio": ".3000",                     "cantidad": 2                 }             ]         }     ],     "panes": [         {             "id": 2,             "nombre": "Baguette",             "crujenticidad": 4,             "integral": 0,             "precio": ".5000",             "cantidad": 1         }     ],     "complementos": [] }
+
+<> 2019-01-21T093143.404.html
+
+###
+
 GET http://pennypan.devel:8080/cliente/oscar1/pedido/6
 Accept: */*
 Cache-Control: no-cache
@@ -303,82 +411,6 @@ GET http://biblioteca.devel:8080/cliente
 Accept: */*
 Cache-Control: no-cache
 Authorization: Basic eWVyYXkxOjEyMzQ
-
-###
-
-GET http://biblioteca.devel:8080/cliente
-Accept: */*
-Cache-Control: no-cache
-
-###
-
-GET http://biblioteca.devel:8080/cliente
-Accept: */*
-Cache-Control: no-cache
-
-###
-
-GET http://biblioteca.devel:8080/cliente
-Accept: */*
-Cache-Control: no-cache
-
-###
-
-GET http://biblioteca.devel:8080/cliente
-Accept: */*
-Cache-Control: no-cache
-
-###
-
-GET http://biblioteca.devel:8080/cliente
-Accept: */*
-Cache-Control: no-cache
-
-###
-
-GET http://biblioteca.devel:8080/cliente
-Accept: */*
-Cache-Control: no-cache
-
-###
-
-GET http://biblioteca.devel:8080/cliente
-Accept: */*
-Cache-Control: no-cache
-
-###
-
-GET http://biblioteca.devel:8080/cliente
-Accept: */*
-Cache-Control: no-cache
-
-###
-
-GET http://biblioteca.devel:8080/cliente
-Accept: */*
-Cache-Control: no-cache
-
-###
-
-GET http://biblioteca.devel:8080/cliente
-Accept: */*
-Cache-Control: no-cache
-
-###
-
-GET http://pennypan.devel:8080/cliente
-Accept: */*
-Cache-Control: no-cache
-
-<> 2018-12-18T052539.404.html
-
-###
-
-GET http://pennypan.devel:8080/cliente
-Accept: */*
-Cache-Control: no-cache
-
-<> 2018-12-18T052240.404.html
 
 ###
 

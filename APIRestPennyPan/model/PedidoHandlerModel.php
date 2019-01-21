@@ -228,14 +228,14 @@ class PedidoHandlerModel
         return $arrayPedidos;
     }
 
-    public static function postPedido(PedidoModel $pedido, $username)
+    public static function postPedido($pedido, $username)
     {
         $db = DatabaseModel::getInstance();
         $db_connection = $db->getConnection();
         $pedidoResponse = null;
-        $panes = $pedido->getPanes();
-        $complementos = $pedido->getComplementos();
-        $bocatas = $pedido->getBocatas();
+        $panes = $pedido->panes;
+        $complementos = $pedido->complementos;
+        $bocatas = $pedido->bocatas;
 
         $queryPedido = "EXECUTE dbo.InsertarPedido ?, ?, ?, ?";
         $queryPanes = "INSERT INTO PedidosPanes (IDPedido, IDPan, Cantidad) VALUES (?, ?, ?)";
@@ -244,12 +244,12 @@ class PedidoHandlerModel
         $queryIngredientes = "INSERT INTO BocatasIngredientes (IDBocata, IDIngrediente, Cantidad) VALUES (?, ?, ?)";
 
         //Preparación para insertar el pedido primero
-        $idPedido = 0;
+        &$idPedido = 0;
         $params = array(
             array($username, SQLSRV_PARAM_IN),
-            array($pedido->getFechaCompra(), SQLSRV_PARAM_IN),
-            array($pedido->getImporteTotal(), SQLSRV_PARAM_IN),
-            array($idPedido, SQLSRV_PARAM_OUT)
+            array($pedido->fechaCompra, SQLSRV_PARAM_IN),
+            array($pedido->importeTotal, SQLSRV_PARAM_IN),
+            array(&$idPedido, SQLSRV_PARAM_OUT)
         );
         $stmtPedido = sqlsrv_query($db_connection, $queryPedido, $params);
 
@@ -262,8 +262,8 @@ class PedidoHandlerModel
             {
                 foreach($panes as $pan)
                 {
-                    $idPan = $pan->getId();
-                    $panQty = $pan->getCantidad();
+                    $idPan = $pan->id;
+                    $panQty = $pan->cantidad;
                     sqlsrv_execute($stmtPanes);
                 }
             }
@@ -274,8 +274,8 @@ class PedidoHandlerModel
             {
                 foreach($complementos as $comp)
                 {
-                    $idComp = $comp->getId();
-                    $compQty = $comp->getCantidad();
+                    $idComp = $comp->id;
+                    $compQty = $comp->cantidad;
                     sqlsrv_execute($stmtComp);
                 }
             }
@@ -284,7 +284,7 @@ class PedidoHandlerModel
             $params = array(
                 array($idPedido, SQLSRV_PARAM_IN),
                 array($idPanBocata, SQLSRV_PARAM_IN),
-                array($idBocata, SQLSRV_PARAM_OUT)
+                array(&$idBocata, SQLSRV_PARAM_OUT)
             );
             $stmtBocata = sqlsrv_prepare($db_connection, $queryBocatas, $params);
 
@@ -294,13 +294,13 @@ class PedidoHandlerModel
             {
                 foreach($bocatas as $bocata)
                 {
-                    $idPanBocata = $bocata->getPan()->getId();
+                    $idPanBocata = $bocata->pan->id;
                     sqlsrv_execute($stmtBocata);
 
-                    foreach($bocata->getIngredientes() as $ingr)
+                    foreach($bocata->ingredientes as $ingr)
                     {
-                        $idIngr = $ingr->getId();
-                        $ingrQty = $ingr->getCantidad();
+                        $idIngr = $ingr->id;
+                        $ingrQty = $ingr->cantidad;
                         sqlsrv_execute($stmtIngr);
                     }
                 }
@@ -312,6 +312,8 @@ class PedidoHandlerModel
             return self::getPedido($username, $idPedido);
 
         }
+        else
+            $algo = sqlsrv_errors();
 
         sqlsrv_free_stmt($stmtPedido);
         $db->closeConnection();

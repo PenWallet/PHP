@@ -63,10 +63,10 @@ class PedidoController extends Controller
         $authPass = $request->getAuthPass();
         $username = isset($request->getUrlElements()[2]) ? $request->getUrlElements()[2] : null;
         $listaPedidos = null;
-        $pedido = (object)$request->getBodyParameters();
+        $pedido = $request->getBodyParameters();
         $pedidoResponse = null;
 
-        if($pedido instanceof PedidoModel)
+        if($pedido != null)
         {
             if(isset($request->getUrlElements()[3]) && strtolower($request->getUrlElements()[3]) == "pedido")
             {
@@ -76,6 +76,11 @@ class PedidoController extends Controller
                     if($cliente != null)
                     {
                         $pedidoResponse = PedidoHandlerModel::postPedido($pedido, $username);
+
+                        if($pedidoResponse == null)
+                            $code = '500'; //Server Internal Error
+                        else
+                            $code = '200';
                     }
                     else
                         $code = '401'; //Unauthorized
