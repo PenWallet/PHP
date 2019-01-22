@@ -244,20 +244,21 @@ class PedidoHandlerModel
         $queryIngredientes = "INSERT INTO BocatasIngredientes (IDBocata, IDIngrediente, Cantidad) VALUES (?, ?, ?)";
 
         //Preparación para insertar el pedido primero
-        &$idPedido = 0;
+        $idPedido = 0;
         $params = array(
-            array($username, SQLSRV_PARAM_IN),
-            array($pedido->fechaCompra, SQLSRV_PARAM_IN),
-            array($pedido->importeTotal, SQLSRV_PARAM_IN),
+            array(&$username, SQLSRV_PARAM_IN),
+            array(&$pedido->fechaCompra, SQLSRV_PARAM_IN),
+            array(&$pedido->importeTotal, SQLSRV_PARAM_IN),
             array(&$idPedido, SQLSRV_PARAM_OUT)
         );
         $stmtPedido = sqlsrv_query($db_connection, $queryPedido, $params);
 
         if($stmtPedido != false)
         {
+            sqlsrv_next_result($stmtPedido);
             //El pedido ya está insertado y tenemos su ID, pasamos a insertar todo lo demás
             $idPan = 0; $panQty = 0;
-            $stmtPanes = sqlsrv_prepare($db_connection, $queryPanes, array($idPedido, $idPan, $panQty));
+            $stmtPanes = sqlsrv_prepare($db_connection, $queryPanes, array(&$idPedido, &$idPan, &$panQty));
             if($stmtPanes != false)
             {
                 foreach($panes as $pan)
@@ -269,7 +270,7 @@ class PedidoHandlerModel
             }
 
             $idComp = 0; $compQty = 0;
-            $stmtComp = sqlsrv_prepare($db_connection, $queryComplementos, array($idPedido, $idComp, $compQty));
+            $stmtComp = sqlsrv_prepare($db_connection, $queryComplementos, array(&$idPedido, &$idComp, &$compQty));
             if($stmtComp != false)
             {
                 foreach($complementos as $comp)
@@ -282,16 +283,17 @@ class PedidoHandlerModel
 
             $idPanBocata = 0; $idBocata = 0;
             $params = array(
-                array($idPedido, SQLSRV_PARAM_IN),
-                array($idPanBocata, SQLSRV_PARAM_IN),
+                array(&$idPedido, SQLSRV_PARAM_IN),
+                array(&$idPanBocata, SQLSRV_PARAM_IN),
                 array(&$idBocata, SQLSRV_PARAM_OUT)
             );
             $stmtBocata = sqlsrv_prepare($db_connection, $queryBocatas, $params);
 
             $idIngr = 0; $ingrQty = 0;
-            $stmtIngr = sqlsrv_prepare($db_connection, $queryIngredientes, array($idBocata, $idIngr, $ingrQty));
+            $stmtIngr = sqlsrv_prepare($db_connection, $queryIngredientes, array(&$idBocata, &$idIngr, &$ingrQty));
             if($stmtBocata != null)
             {
+                sqlsrv_next_result($stmtBocata);
                 foreach($bocatas as $bocata)
                 {
                     $idPanBocata = $bocata->pan->id;
