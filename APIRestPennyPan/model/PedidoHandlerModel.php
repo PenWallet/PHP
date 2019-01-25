@@ -293,11 +293,12 @@ class PedidoHandlerModel
             $stmtIngr = sqlsrv_prepare($db_connection, $queryIngredientes, array(&$idBocata, &$idIngr, &$ingrQty));
             if($stmtBocata != null)
             {
-                sqlsrv_next_result($stmtBocata);
+
                 foreach($bocatas as $bocata)
                 {
                     $idPanBocata = $bocata->pan->id;
                     sqlsrv_execute($stmtBocata);
+                    sqlsrv_next_result($stmtBocata);
 
                     foreach($bocata->ingredientes as $ingr)
                     {
