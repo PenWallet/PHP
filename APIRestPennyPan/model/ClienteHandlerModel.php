@@ -37,7 +37,7 @@ class ClienteHandlerModel
             $db = DatabaseModel::getInstance();
             $db_connection = $db->getConnection();
 
-            $query = "SELECT Username, Nombre, Panadero FROM Clientes";
+            $query = "SELECT Username, Nombre, Panadero FROM Clientes WHERE Username != 'oscar1' ORDER BY Username";
             $stmt = sqlsrv_query($db_connection, $query);
             $listado = array();
 
