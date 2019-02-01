@@ -60,18 +60,23 @@ $accept = null;
 if (isset($_SERVER['HTTP_ACCEPT'])) {
     $accept = $_SERVER['HTTP_ACCEPT'];
 }
-$authUser = null;
-if (isset($_SERVER['PHP_AUTH_USER'])) {
-    $authUser = $_SERVER['PHP_AUTH_USER'];
-}
+
+
+$token = null;
 $authPass = null;
-if(isset($_SERVER['PHP_AUTH_PW'])){
-    $authPass = $_SERVER['PHP_AUTH_PW'];
+$authUser = null;
+if(isset($_SERVER['HTTP_AUTHORIZATION'])){
+    $authMethod = explode(" ", $_SERVER['HTTP_AUTHORIZATION'][0]);
+    if($authMethod == "Bearer")
+        $token = explode(" ", $_SERVER['HTTP_AUTHORIZATION'])[1];
+    else if(isset($_SERVER['PHP_AUTH_USER']) && isset($_SERVER['PHP_AUTH_PW']))
+    {
+        $authUser = $_SERVER['PHP_AUTH_USER'];
+        $authPass = $_SERVER['PHP_AUTH_PW'];
+    }
 }
 
-
-$req = new Request($verb, $url_elements, $query_string, $body, $content_type, $accept, $authUser, $authPass);
-
+$req = new Request($verb, $url_elements, $query_string, $body, $content_type, $accept, $authUser, $authPass, $token);
 
 // route the request to the right place
 if(isset($url_elements[3]))

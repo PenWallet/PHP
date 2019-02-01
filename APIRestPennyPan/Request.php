@@ -13,8 +13,9 @@ class Request
     private $accept;
     private $authUser;
     private $authPass;
+    private $token;
 
-    public function __construct($verb, $url_elements, $query_string, $body, $content_type, $accept, $authUser, $authPass)
+    public function __construct($verb, $url_elements, $query_string, $body, $content_type, $accept, $authUser, $authPass, $token)
     {
         $this->verb = $verb;
         $this->url_elements = $url_elements;
@@ -22,6 +23,7 @@ class Request
         $this->parseBody($body, $content_type);
         $this->authUser = $authUser;
         $this->authPass = $authPass;
+        $this->token = $token;
 
         switch ($accept) {
             case 'application/json':
@@ -186,6 +188,22 @@ class Request
     public function getAuthPass()
     {
         return $this->authPass;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getToken()
+    {
+        return $this->token;
+    }
+
+    /**
+     * @param mixed $token
+     */
+    public function setToken($token)
+    {
+        $this->token = $token;
     }
 
 

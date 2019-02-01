@@ -3,6 +3,7 @@
 require_once "Controller.php";
 
 
+
 class ClienteController extends Controller
 {
     public function manageGetVerb(Request $request)
@@ -14,6 +15,7 @@ class ClienteController extends Controller
         $username = null;
         $listadoUsuarios = null;
 
+        //Si
         if(isset($request->getUrlElements()[2]))
         {
             $username = $request->getUrlElements()[2];
@@ -25,7 +27,11 @@ class ClienteController extends Controller
                 if($listadoUsuarios == null)
                     $code = '401'; //Unauthorized
                 else
+                {
                     $code = '200'; //OK
+                    TokenHandlerModel::generateTokenFromLogin($listadoUsuarios);
+                }
+
 
             }
             else if($authPass == null || $authUser == null)
