@@ -1,7 +1,6 @@
 <?php
 
-namespace model;
-use Firebase\JWT\JWT;
+require_once dirname(__DIR__)."/JWT/JWT.php";
 
 class TokenHandlerModel
 {
