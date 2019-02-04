@@ -60,20 +60,29 @@ $accept = null;
 if (isset($_SERVER['HTTP_ACCEPT'])) {
     $accept = $_SERVER['HTTP_ACCEPT'];
 }
-
-
-$token = null;
-$authPass = null;
-$authUser = null;
+$token = null; $authPass = null; $authUser = null;
 if(isset($_SERVER['HTTP_AUTHORIZATION'])){
     $authMethod = explode(" ", $_SERVER['HTTP_AUTHORIZATION'][0]);
     if($authMethod == "Bearer")
+    {
         $token = explode(" ", $_SERVER['HTTP_AUTHORIZATION'])[1];
+
+    }
     else if(isset($_SERVER['PHP_AUTH_USER']) && isset($_SERVER['PHP_AUTH_PW']))
     {
         $authUser = $_SERVER['PHP_AUTH_USER'];
         $authPass = $_SERVER['PHP_AUTH_PW'];
     }
+    else
+    {
+        $controller = new UnauthorizedController();
+        $controller->manage($req);
+    }
+}
+else if(ucfirst($url_elements[1]) != "Pan" && ucfirst($url_elements[1]) != "Complemento" && ucfirst($url_elements[1]) != "Ingrediente")
+{
+    $controller = new UnauthorizedController();
+    $controller->manage($req);
 }
 
 $req = new Request($verb, $url_elements, $query_string, $body, $content_type, $accept, $authUser, $authPass, $token);

@@ -1,8 +1,7 @@
 <?php
 
 require_once "Controller.php";
-//require_once "/var/www/pennypan.devel/model/TokenHandlerModel.php";
-require_once "TokenHandlerModel.php";
+require_once dirname(__DIR__)."/Tokens.php";
 
 
 
@@ -31,7 +30,7 @@ class ClienteController extends Controller
                 else
                 {
                     $code = '200'; //OK
-                    TokenHandlerModel::generateTokenFromLogin($listadoUsuarios);
+                    Tokens::generateTokenFromLogin($listadoUsuarios);
                 }
 
 

@@ -3,6 +3,8 @@
 class ClienteHandlerModel
 {
 
+    //Devuelve el cliente si existe y se ha verificado la contraseña
+    //Devuelve null si no se ha encontrado el cliente o si no se ha podido autentificar
     public static function getUsuario($authUser, $authPass)
     {
         $db = DatabaseModel::getInstance();
