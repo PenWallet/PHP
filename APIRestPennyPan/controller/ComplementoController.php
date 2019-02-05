@@ -24,7 +24,6 @@ class ComplementoController extends Controller
 
 
         $response = new Response($code, null, $listaComplementos, $request->getAccept());
-        $response->generate();
-
+        $response->generate($request->getToken());
     }
 }

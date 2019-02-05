@@ -9,6 +9,18 @@ class ClienteController extends Controller
 {
     public function manageGetVerb(Request $request)
     {
+        $payload = Authentication::getPayloadFromToken($request->getToken());
+        $panadero = $payload->data->panadero;
+
+        if(isset($request->getUrlElements()[2]))
+        {
+
+        }
+        else
+        {
+
+        }
+
         $response = new Response("204", null, null, $request->getAccept());
         $response->generate($request->getToken());
     }

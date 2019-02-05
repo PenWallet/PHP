@@ -79,15 +79,13 @@ else
 $newToken = Authentication::isAuthenticated($req);
 $req->setToken($newToken);
 
-if($newToken !== false || ($newToken === false && ($controller_name == "PanController" || $controller_name == "ComplementoController" || $controller_name == "IngredienteController")))
+if($newToken !== false || ($newToken === false && ($controller_name == "PanController" || $controller_name == "ComplementoController" || $controller_name == "IngredienteController")) || ($verb == "POST" && $controller_name == "ClienteController"))
 {
     if (class_exists($controller_name))
     {
-
         $controller = new $controller_name();
         $action_name = 'manage' . ucfirst(strtolower($verb)) . 'Verb';
         $controller->$action_name($req);
-
     } //If class does not exist, we will send the request to NotFoundController
     else
     {
