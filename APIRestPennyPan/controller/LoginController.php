@@ -1,7 +1,7 @@
 <?php
 
 require_once "Controller.php";
-require_once dirname(__DIR__)."/Tokens.php";
+require_once dirname(__DIR__) . "/Authentication.php";
 
 
 

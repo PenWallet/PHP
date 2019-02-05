@@ -18,9 +18,8 @@ class Response
         $this->format = $format;
     }
 
-    public function generate()
+    public function generate($token)
     {
-
         switch ($this->format) {
             case 'json':
 
@@ -46,6 +45,8 @@ class Response
         if (!empty($this->body)) {
             echo $this->body;
         }
+
+        header("Authentication" . ": Bearer ".$token);
     }
 
 }
