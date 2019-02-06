@@ -9,19 +9,21 @@ class ClienteController extends Controller
 {
     public function manageGetVerb(Request $request)
     {
-        $payload = Authentication::getPayloadFromToken($request->getToken());
-        $panadero = $payload->data->panadero;
+        $listadoUsuarios = null;
 
-        if(isset($request->getUrlElements()[2]))
+        if(!isset($request->getUrlElements()[2]))
         {
+            $listadoUsuarios = ClienteHandlerModel::getListadoUsuarios();
 
+            if ($listadoUsuarios != null)
+                $code = '200'; //OK
+            else
+                $code = '500'; //Internal Server Error
         }
         else
-        {
+            $code = '204'; //No Content
 
-        }
-
-        $response = new Response("204", null, null, $request->getAccept());
+        $response = new Response($code, null, $listadoUsuarios, $request->getAccept());
         $response->generate($request->getToken());
     }
 
@@ -38,7 +40,11 @@ class ClienteController extends Controller
         if($usuarioCreado == null)
             $code = '409'; //Conflict
         else
+        {
             $code = '201'; //Created
+            $request->setToken(Authentication::generateTokenFromLogin($usuarioCreado));
+        }
+
 
         $response = new Response($code, null, null, $request->getAccept());
         $response->generate($request->getToken());

@@ -1,5 +1,9 @@
 <?php
 
+include_once __DIR__."/BeforeValidException.php";
+include_once __DIR__."/ExpiredException.php";
+include_once __DIR__."/SignatureInvalidException.php";
+
 /**
  * JSON Web Token implementation, based on this spec:
  * https://tools.ietf.org/html/rfc7519

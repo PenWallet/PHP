@@ -76,4 +76,36 @@ class Authentication
 
     }
 
+    public static function hasUserPermission($request)
+    {
+        $hasPermission = false;
+        $verb = $request->getVerb();
+        $urlElements = $request->getUrlElements();
+        $controller = isset($urlElements[3]) ? ucfirst($urlElements[3]) : ucfirst($urlElements[1]);
+
+
+        if($controller == "Pan" || $controller == "Complemento" || $controller == "Ingrediente" || ($verb == "POST" && $controller == "Cliente"))
+            $hasPermission = true;
+        else
+        {
+            $payload = self::getPayloadFromToken($request->getToken());
+
+            if($payload !== false)
+            {
+                //Si está intentando editar un cliente o si está intentando obtener todo el listado de clientes
+                if($controller == "Cliente" && $verb == "PUT" || $controller == "Cliente" && $verb == "GET" && !isset($urlElements[2]))
+                {
+                    $panadero = $payload->data->panadero;
+
+                    if($panadero == 1)
+                        $hasPermission = true;
+                }
+                else
+                    $hasPermission = true;
+            }
+        }
+
+        return $hasPermission;
+    }
+
 }

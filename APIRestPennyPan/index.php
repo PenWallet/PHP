@@ -79,7 +79,7 @@ else
 $newToken = Authentication::isAuthenticated($req);
 $req->setToken($newToken);
 
-if($newToken !== false || ($newToken === false && ($controller_name == "PanController" || $controller_name == "ComplementoController" || $controller_name == "IngredienteController")) || ($verb == "POST" && $controller_name == "ClienteController"))
+if(Authentication::hasUserPermission($req))
 {
     if (class_exists($controller_name))
     {

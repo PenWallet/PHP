@@ -30,31 +30,28 @@ class ClienteHandlerModel
         return $cliente;
     }
 
-    public static function getListadoUsuarios($panadero)
+    public static function getListadoUsuarios()
     {
         $listado = null;
 
-        if($panadero->getPanadero() == 1)
+        $db = DatabaseModel::getInstance();
+        $db_connection = $db->getConnection();
+
+        $query = "SELECT Username, Nombre, Panadero FROM Clientes WHERE Username != 'oscar1' ORDER BY Username";
+        $stmt = sqlsrv_query($db_connection, $query);
+        $listado = array();
+
+        while(sqlsrv_fetch($stmt))
         {
-            $db = DatabaseModel::getInstance();
-            $db_connection = $db->getConnection();
-
-            $query = "SELECT Username, Nombre, Panadero FROM Clientes WHERE Username != 'oscar1' ORDER BY Username";
-            $stmt = sqlsrv_query($db_connection, $query);
-            $listado = array();
-
-            while(sqlsrv_fetch($stmt))
-            {
-                $usuario = sqlsrv_get_field($stmt, 0);
-                $usuario = trim($usuario, " ");
-                $nombre = sqlsrv_get_field($stmt, 1);
-                $pan = sqlsrv_get_field($stmt, 2);
-                $listado[] = new ClienteModel($usuario, "", $nombre, $pan);
-            }
-
-            sqlsrv_free_stmt($stmt);
-            $db->closeConnection();
+            $usuario = sqlsrv_get_field($stmt, 0);
+            $usuario = trim($usuario, " ");
+            $nombre = sqlsrv_get_field($stmt, 1);
+            $pan = sqlsrv_get_field($stmt, 2);
+            $listado[] = new ClienteModel($usuario, "", $nombre, $pan);
         }
+
+        sqlsrv_free_stmt($stmt);
+        $db->closeConnection();
 
         return $listado;
     }
