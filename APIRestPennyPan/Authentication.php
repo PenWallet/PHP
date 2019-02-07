@@ -1,7 +1,11 @@
 <?php
 
 require_once __DIR__."/JWT/JWT.php";
+require_once __DIR__."/JWT/BeforeValidException.php";
+require_once __DIR__."/JWT/SignatureInvalidException.php";
+require_once __DIR__."/JWT/ExpiredException.php";
 require_once __DIR__."/model/ClienteHandlerModel.php";
+require_once "Request.php";
 
 class Authentication
 {
@@ -33,10 +37,11 @@ class Authentication
     {
         try{
             $payload = JWT::decode($token, self::KEY, array('HS256'));
-        }catch (\Firebase\JWT\ExpiredException $e) { $payload = false; }
-        catch (\Firebase\JWT\BeforeValidException $e) { $payload = false; }
-        catch ( \Firebase\JWT\SignatureInvalidException $e ) { $payload = false; }
-        catch ( UnexpectedValueException $e ) { $payload = false; }
+        }catch (ExpiredException $e) { $payload = false; }
+        catch (BeforeValidException $e) { $payload = false; }
+        catch (SignatureInvalidException $e ) { $payload = false; }
+        catch (UnexpectedValueException $e ) { $payload = false; }
+        catch (Exception $e ) { $payload = false; }
 
         return $payload;
     }
@@ -46,7 +51,7 @@ class Authentication
      * @param $req
      * @return string o false
      */
-    public static function isAuthenticated($req)
+    public static function isAuthenticated(Request $req)
     {
         $token = $req->getToken();
         $authUser = $req->getAuthUser();

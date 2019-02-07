@@ -23,8 +23,11 @@ class ClienteController extends Controller
         else
             $code = '204'; //No Content
 
-        $response = new Response($code, null, $listadoUsuarios, $request->getAccept());
-        $response->generate($request->getToken());
+        $headers = array();
+        $headers["Authentication"] = "Bearer ".$request->getToken();
+
+        $response = new Response($code, $headers, $listadoUsuarios, $request->getAccept());
+        $response->generate();
     }
 
     public function managePostVerb(Request $request)
@@ -45,9 +48,11 @@ class ClienteController extends Controller
             $request->setToken(Authentication::generateTokenFromLogin($usuarioCreado));
         }
 
+        $headers = array();
+        $headers["Authentication"] = "Bearer ".$request->getToken();
 
-        $response = new Response($code, null, null, $request->getAccept());
-        $response->generate($request->getToken());
+        $response = new Response($code, $headers, null, $request->getAccept());
+        $response->generate();
 
     }
 

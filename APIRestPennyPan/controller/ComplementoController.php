@@ -22,8 +22,12 @@ class ComplementoController extends Controller
         else
             $code = '200';
 
+        $headers = array();
+        if($request->getToken() != null)
+            $headers["Authentication"] = "Bearer ".$request->getToken();
 
-        $response = new Response($code, null, $listaComplementos, $request->getAccept());
+
+        $response = new Response($code, $headers, $listaComplementos, $request->getAccept());
         $response->generate($request->getToken());
     }
 }

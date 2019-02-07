@@ -22,8 +22,11 @@ class IngredienteController extends Controller
         else
             $code = '200';
 
+        $headers = array();
+        if($request->getToken() != null)
+            $headers["Authentication"] = "Bearer ".$request->getToken();
 
-        $response = new Response($code, null, $listaIngredientes, $request->getAccept());
+        $response = new Response($code, $headers, $listaIngredientes, $request->getAccept());
         $response->generate();
 
     }

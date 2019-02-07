@@ -119,7 +119,7 @@ class PedidoHandlerModel
         $panBocata = null;
         $complemento = null;
         $bocata = null;
-        $arrayPedidos = array();
+        $arrayPedidos = null;
 
         $query = "SELECT ID, FechaCompra, ImporteTotal FROM Pedidos WHERE ClienteUsername = ?";
         $queryPanes = "SELECT ID, Nombre, Crujenticidad, Integral, Precio, Cantidad FROM Panes AS P INNER JOIN PedidosPanes AS PP ON P.ID = PP.IDPan WHERE PP.IDPedido = ?";
@@ -132,6 +132,7 @@ class PedidoHandlerModel
         //Se puede ejecutar
         if(sqlsrv_execute($stmtPedido))
         {
+            $arrayPedidos = array();
             $esPrimerPedido = true;
             //Existe un pedido así
             while(sqlsrv_fetch($stmtPedido))

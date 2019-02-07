@@ -22,8 +22,11 @@ class PanController extends Controller
         else
             $code = '200';
 
+        $headers = array();
+        if($request->getToken() != null)
+            $headers["Authentication"] = "Bearer ".$request->getToken();
 
-        $response = new Response($code, null, $listaPanes, $request->getAccept());
+        $response = new Response($code, $headers, $listaPanes, $request->getAccept());
         $response->generate();
 
     }
