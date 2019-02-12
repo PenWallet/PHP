@@ -81,4 +81,17 @@ class ClienteHandlerModel
         return $cliente;
     }
 
+    public static function cambiarPanaderoUsuario($usuario)
+    {
+        $db = DatabaseModel::getInstance();
+        $db_connection = $db->getConnection();
+
+        $query = "UPDATE Clientes SET Panadero = ? WHERE Username = ?";
+        $parametros = array($usuario->panadero, $usuario->username);
+        $stmt = sqlsrv_prepare($db_connection, $query, $parametros);
+        $success = sqlsrv_execute($stmt);
+
+        return $success;
+    }
+
 }

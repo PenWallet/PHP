@@ -98,7 +98,7 @@ class Authentication
             if($payload !== false)
             {
                 //Si está intentando editar un cliente o si está intentando obtener todo el listado de clientes
-                if($controller == "Cliente" && $verb == "PUT" || $controller == "Cliente" && $verb == "GET" && !isset($urlElements[2]))
+                if($controller == "Cliente" && ($verb == "PUT" || $verb == "PATCH" || ($verb == "GET" && !isset($urlElements[2]))))
                 {
                     $panadero = $payload->data->panadero;
 

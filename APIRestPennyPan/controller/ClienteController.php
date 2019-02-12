@@ -56,4 +56,32 @@ class ClienteController extends Controller
 
     }
 
+    public function managePatchVerb(Request $request)
+    {
+        $response = null;
+        $code = null;
+        $usuarioCreado = null;
+
+        $usuario = (object)$request->getBodyParameters();
+
+        if(isset($usuario->username) && isset($usuario->panadero))
+        {
+            $success = ClienteHandlerModel::cambiarPanaderoUsuario($usuario);
+
+            if($success === true)
+                $code = '204'; //No Content
+            else
+                $code = '404'; //Not Found
+        }
+        else
+            $code = '400'; //Bad Request
+
+        $headers = array();
+        $headers["Authentication"] = "Bearer ".$request->getToken();
+
+        $response = new Response($code, $headers, null, $request->getAccept());
+        $response->generate();
+
+    }
+
 }
