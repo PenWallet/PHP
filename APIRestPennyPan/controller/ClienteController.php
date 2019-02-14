@@ -60,18 +60,36 @@ class ClienteController extends Controller
     {
         $response = null;
         $code = null;
-        $usuarioCreado = null;
+        $isCorrect = true;
 
-        $usuario = (object)$request->getBodyParameters();
-
-        if(isset($usuario->username) && isset($usuario->panadero))
+        if(!is_array($request->getBodyParameters()))
         {
-            $success = ClienteHandlerModel::cambiarPanaderoUsuario($usuario);
+            $usuarios = (object)$request->getBodyParameters();
+            $usuarios = array($usuarios);
+        }
+        else
+            $usuarios = $request->getBodyParameters();
 
-            if($success === true)
-                $code = '204'; //No Content
-            else
+        for($i = 0; $i < sizeof($usuarios) && $isCorrect; $i++)
+        {
+            if(!isset($usuarios[$i]->username) || !isset($usuarios[$i]->panadero))
+                $isCorrect = false;
+        }
+
+        if($isCorrect)
+        {
+            $arraySuccess = ClienteHandlerModel::cambiarPanaderoUsuarios($usuarios);
+            $thereAreNoTrues = true;
+
+            for($i = 0; $i < sizeof($arraySuccess) && $thereAreNoTrues; $i++)
+                $thereAreNoTrues = !$arraySuccess[$i];
+
+            if($thereAreNoTrues)
                 $code = '404'; //Not Found
+            else if(in_array(false, $arraySuccess))
+                $code = '207'; //Multi-Status
+            else
+                $code = '204'; //No Content
         }
         else
             $code = '400'; //Bad Request
